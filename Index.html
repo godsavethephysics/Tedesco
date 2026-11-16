@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deutsch A1–A2 · Ripasso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f2ea; --card:#fffdf8; --ink:#1c1b19; --mute:#6f6a60; --line:#e3dccd;
+  --red:#c8202f; --gold:#e3a614; --ok:#1f8a4c; --okbg:#e3f4ea; --no:#c8202f; --nobg:#fbe5e5;
+  --der:#2d63c8; --die:#c8202f; --das:#1f8a4c; --shadow:0 1px 2px rgba(0,0,0,.05),0 6px 20px rgba(60,40,10,.06);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#151413; --card:#1f1e1c; --ink:#f2eee6; --mute:#a39d92; --line:#34312c;
+  --okbg:#183326; --nobg:#3a1c1e; --shadow:0 1px 2px rgba(0,0,0,.3);
+  --der:#5b8ef0; --das:#3fbf74; --die:#ef5361; --red:#ef5361; --ok:#3fbf74; --no:#ef5361;
+}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.45}
+.wrap{max-width:640px;margin:0 auto;padding:18px 16px 60px}
+header{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.flag{flex:none;width:6px;height:34px;border-radius:3px;background:linear-gradient(#1c1b19 0 33%,var(--red) 33% 66%,var(--gold) 66%)}
+@media (prefers-color-scheme:dark){.flag{background:linear-gradient(#000 0 33%,var(--red) 33% 66%,var(--gold) 66%)}}
+h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.5rem;margin:0;letter-spacing:-.01em}
+h1 small{display:block;font-family:Inter,system-ui,sans-serif;font-weight:500;font-size:.8rem;color:var(--mute);letter-spacing:0}
+h3{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:var(--mute);margin:22px 0 8px;font-weight:600}
+.back{flex:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:7px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.stat b{display:block;font-family:Fraunces,Georgia,serif;font-size:1.35rem}
+.stat span{font-size:.75rem;color:var(--mute)}
+.stat b small{font-family:Inter,system-ui,sans-serif;font-size:.78rem;font-weight:500;color:var(--mute)}
+.hint2{font-size:.85rem;color:var(--mute);margin:8px 0}
+.exam{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:.88rem}
+.exam input{font:inherit;font-size:.88rem;border:1px solid var(--line);border-radius:8px;padding:4px 6px;background:var(--bg);color:var(--ink)}
+.exam b{font-family:Fraunces,Georgia,serif;font-size:1.05rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mode{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;text-align:left;cursor:pointer;font:inherit;color:inherit;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center}
+.mode:active{transform:scale(.98)}
+.mode .ic{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:.8rem;color:#fff}
+.mode b{display:block;font-size:.95rem;line-height:1.2}
+.mode span{font-size:.76rem;color:var(--mute);line-height:1.25;display:block;margin-top:2px}
+.mode.wide{grid-column:1/-1}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 10px;margin:8px 0 6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips.wrapc{flex-wrap:wrap;overflow:visible}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 12px;font:inherit;font-size:.85rem;cursor:pointer;white-space:nowrap}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:6px 0 16px}
+.bar i{display:block;height:100%;background:var(--gold);transition:width .3s}
+.meta{display:flex;justify-content:space-between;font-size:.8rem;color:var(--mute)}
+.q{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 16px;box-shadow:var(--shadow)}
+.q .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);font-weight:600}
+.q .prompt{font-family:Fraunces,Georgia,serif;font-size:1.6rem;font-weight:600;margin:6px 0 4px;line-height:1.25;overflow-wrap:anywhere}
+.q .prompt.sm{font-size:1.2rem}
+.q .sub{color:var(--mute);font-size:.95rem}
+.passage{background:var(--bg);border-radius:12px;padding:12px 14px;margin:8px 0 14px;font-size:.98rem;line-height:1.55}
+.passage b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-bottom:4px}
+.say{border:none;background:var(--bg);color:var(--ink);border-radius:99px;padding:6px 12px;font:inherit;font-size:.82rem;cursor:pointer;margin-top:8px}
+.say.big{display:block;width:100%;padding:14px;font-size:1rem;font-weight:600;border:1.5px solid var(--line);border-radius:14px;margin:8px 0 12px}
+.opts{display:grid;gap:8px;margin-top:16px}
+.opt{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:13px 14px;font:inherit;font-size:1.02rem;text-align:left;cursor:pointer}
+.opt:disabled{cursor:default}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.no{border-color:var(--no);background:var(--nobg)}
+.art{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.art .opt{text-align:center;font-weight:700;font-size:1.15rem;color:#fff;border:none;padding:16px 0}
+.art .der{background:var(--der)}.art .die{background:var(--die)}.art .das{background:var(--das)}
+.art .opt.dim{opacity:.3}
+.art .opt.ok,.art .opt.no{outline:3px solid var(--ink);outline-offset:2px}
+input.ans,textarea.ans{width:100%;margin-top:16px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:14px;padding:13px 14px;font:inherit;font-size:1.1rem}
+textarea.ans{min-height:150px;font-size:1rem;resize:vertical}
+.ans:focus{outline:none;border-color:var(--gold)}
+input.ans.ok{border-color:var(--ok);background:var(--okbg)}
+input.ans.no{border-color:var(--no);background:var(--nobg)}
+.uml{display:flex;gap:6px;margin-top:8px}
+.uml button{flex:1;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 0;font:inherit;font-size:1rem;cursor:pointer}
+.built{min-height:58px;border:1.5px dashed var(--line);border-radius:14px;padding:8px;margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.built.ok{border-style:solid;border-color:var(--ok);background:var(--okbg)}
+.built.no{border-style:solid;border-color:var(--no);background:var(--nobg)}
+.built .ph{color:var(--mute);font-size:.88rem;padding:0 6px}
+.tokens{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tok{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 12px;font:inherit;font-size:1rem;cursor:pointer}
+.tok.used{opacity:.25}
+.tok.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:.93rem;display:none}
+.fb.show{display:block}
+.fb.ok{background:var(--okbg)}.fb.no{background:var(--nobg)}
+.fb b.h{display:block;margin-bottom:2px}
+.actions{display:flex;gap:8px;margin-top:14px}
+.btn{flex:1;border:none;border-radius:14px;padding:14px;font:inherit;font-weight:600;font-size:1rem;cursor:pointer;background:var(--ink);color:var(--bg)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.btn.red{background:var(--red);color:#fff}
+.btn.green{background:var(--ok);color:#fff}
+.flash{perspective:1000px;margin-top:4px}
+.flash .inner{position:relative;min-height:260px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.flash.flipped .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+.face.back{transform:rotateY(180deg)}
+.face .w{font-family:Fraunces,Georgia,serif;font-size:2rem;font-weight:600;line-height:1.2;overflow-wrap:anywhere}
+.face .hint{position:absolute;bottom:14px;font-size:.75rem;color:var(--mute)}
+.face .pl{color:var(--mute);margin-top:8px;font-size:.95rem}
+.g-der{color:var(--der)}.g-die{color:var(--die)}.g-das{color:var(--das)}
+.seg{display:flex;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:3px;margin:8px 0}
+.seg button{flex:1;border:none;background:none;color:var(--ink);font:inherit;font-size:.85rem;padding:8px 4px;border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.summary{text-align:center}
+.summary .big{font-family:Fraunces,Georgia,serif;font-size:3.2rem;font-weight:800}
+.errs{text-align:left;margin-top:14px}
+.errs div{padding:10px 4px;border-top:1px solid var(--line);font-size:.92rem}
+.errs div span{color:var(--mute)}
+.note{font-size:.82rem;color:var(--mute);margin-top:22px;text-align:center}
+.empty{text-align:center;padding:40px 10px;color:var(--mute)}
+.reset{background:none;border:none;color:var(--mute);text-decoration:underline;font:inherit;font-size:.8rem;cursor:pointer}
+.model{display:none;margin-top:14px;background:var(--okbg);border-radius:12px;padding:12px 14px;font-size:.98rem;line-height:1.55}
+.model.show{display:block}
+ul.pts{margin:8px 0 0;padding-left:20px;font-size:.95rem}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:8px;padding:0 14px}
+summary{cursor:pointer;padding:13px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--mute);font-weight:400}
+details[open] summary::after{content:"–"}
+details .in{padding-bottom:14px;font-size:.92rem}
+details p{margin:6px 0}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem;margin:6px 0}
+th,td{border:1px solid var(--line);padding:5px 7px;text-align:left}
+th{background:var(--bg);font-weight:600}
+.wc{font-size:.8rem;color:var(--mute);margin-top:6px;text-align:right}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><p style="color:#888">Caricamento…</p></div>
+<script>
+(function(){
+"use strict";
+/* ================== VOCABOLI ================== */
+var VOC = [
+["Famiglia","die Mutter","la madre","die Mütter"],["Famiglia","der Vater","il padre","die Väter"],["Famiglia","die Eltern","i genitori",""],["Famiglia","der Bruder","il fratello","die Brüder"],["Famiglia","die Schwester","la sorella","die Schwestern"],["Famiglia","der Sohn","il figlio","die Söhne"],["Famiglia","die Tochter","la figlia","die Töchter"],["Famiglia","die Oma","la nonna","die Omas"],["Famiglia","der Opa","il nonno","die Opas"],["Famiglia","das Kind","il bambino","die Kinder"],["Famiglia","der Mann","l'uomo / il marito","die Männer"],["Famiglia","die Frau","la donna / la moglie","die Frauen"],["Famiglia","der Freund","l'amico / il ragazzo","die Freunde"],["Famiglia","die Freundin","l'amica / la ragazza","die Freundinnen"],["Famiglia","der Onkel","lo zio","die Onkel"],["Famiglia","die Tante","la zia","die Tanten"],["Famiglia","der Nachbar","il vicino di casa","die Nachbarn"],["Famiglia","verheiratet","sposato",""],["Famiglia","ledig","celibe / nubile",""],
+["Casa","das Haus","la casa","die Häuser"],["Casa","die Wohnung","l'appartamento","die Wohnungen"],["Casa","das Zimmer","la stanza","die Zimmer"],["Casa","die Küche","la cucina","die Küchen"],["Casa","das Bad","il bagno","die Bäder"],["Casa","das Schlafzimmer","la camera da letto","die Schlafzimmer"],["Casa","der Tisch","il tavolo","die Tische"],["Casa","der Stuhl","la sedia","die Stühle"],["Casa","das Bett","il letto","die Betten"],["Casa","das Fenster","la finestra","die Fenster"],["Casa","die Tür","la porta","die Türen"],["Casa","der Schrank","l'armadio","die Schränke"],["Casa","der Schlüssel","la chiave","die Schlüssel"],["Casa","die Lampe","la lampada","die Lampen"],["Casa","der Garten","il giardino","die Gärten"],["Casa","der Kühlschrank","il frigorifero","die Kühlschränke"],["Casa","die Miete","l'affitto","die Mieten"],["Casa","der Vermieter","il padrone di casa","die Vermieter"],["Casa","die Heizung","il riscaldamento","die Heizungen"],["Casa","der Stock","il piano (di un edificio)","die Stockwerke"],["Casa","der Aufzug","l'ascensore","die Aufzüge"],
+["Cibo","das Brot","il pane","die Brote"],["Cibo","die Milch","il latte",""],["Cibo","der Kaffee","il caffè",""],["Cibo","der Tee","il tè",""],["Cibo","das Wasser","l'acqua",""],["Cibo","das Bier","la birra","die Biere"],["Cibo","der Wein","il vino","die Weine"],["Cibo","der Apfel","la mela","die Äpfel"],["Cibo","die Kartoffel","la patata","die Kartoffeln"],["Cibo","das Fleisch","la carne",""],["Cibo","der Fisch","il pesce","die Fische"],["Cibo","der Käse","il formaggio",""],["Cibo","das Ei","l'uovo","die Eier"],["Cibo","der Zucker","lo zucchero",""],["Cibo","das Frühstück","la colazione",""],["Cibo","das Mittagessen","il pranzo",""],["Cibo","das Abendessen","la cena",""],["Cibo","die Rechnung","il conto","die Rechnungen"],["Cibo","der Kuchen","la torta","die Kuchen"],["Cibo","die Suppe","la zuppa","die Suppen"],["Cibo","das Gemüse","la verdura",""],["Cibo","das Obst","la frutta",""],["Cibo","die Speisekarte","il menù","die Speisekarten"],["Cibo","das Trinkgeld","la mancia",""],["Cibo","lecker","buono (di sapore)",""],
+["Tempo","der Montag","lunedì",""],["Tempo","der Dienstag","martedì",""],["Tempo","der Mittwoch","mercoledì",""],["Tempo","der Donnerstag","giovedì",""],["Tempo","der Freitag","venerdì",""],["Tempo","der Samstag","sabato",""],["Tempo","der Sonntag","domenica",""],["Tempo","der Tag","il giorno","die Tage"],["Tempo","die Woche","la settimana","die Wochen"],["Tempo","der Monat","il mese","die Monate"],["Tempo","das Jahr","l'anno","die Jahre"],["Tempo","die Stunde","l'ora (60 minuti)","die Stunden"],["Tempo","die Uhr","l'orologio","die Uhren"],["Tempo","heute","oggi",""],["Tempo","morgen","domani",""],["Tempo","gestern","ieri",""],["Tempo","der Morgen","la mattina",""],["Tempo","der Abend","la sera","die Abende"],["Tempo","die Nacht","la notte","die Nächte"],["Tempo","das Wochenende","il fine settimana","die Wochenenden"],["Tempo","immer","sempre",""],["Tempo","manchmal","a volte",""],["Tempo","oft","spesso",""],["Tempo","nie","mai",""],["Tempo","der Termin","l'appuntamento","die Termine"],["Tempo","pünktlich","puntuale",""],
+["Città","die Stadt","la città","die Städte"],["Città","der Bahnhof","la stazione","die Bahnhöfe"],["Città","der Zug","il treno","die Züge"],["Città","der Bus","l'autobus","die Busse"],["Città","das Auto","la macchina","die Autos"],["Città","das Fahrrad","la bicicletta","die Fahrräder"],["Città","die Straße","la strada","die Straßen"],["Città","der Platz","la piazza / il posto","die Plätze"],["Città","die Kirche","la chiesa","die Kirchen"],["Città","das Geschäft","il negozio","die Geschäfte"],["Città","die Apotheke","la farmacia","die Apotheken"],["Città","das Krankenhaus","l'ospedale","die Krankenhäuser"],["Città","die Bank","la banca","die Banken"],["Città","der Flughafen","l'aeroporto","die Flughäfen"],["Città","links","a sinistra",""],["Città","rechts","a destra",""],["Città","geradeaus","dritto",""],["Città","die Haltestelle","la fermata","die Haltestellen"],["Città","die Ampel","il semaforo","die Ampeln"],["Città","die Ecke","l'angolo","die Ecken"],["Città","die Brücke","il ponte","die Brücken"],
+["Viaggi","die Reise","il viaggio","die Reisen"],["Viaggi","der Urlaub","le ferie / la vacanza","die Urlaube"],["Viaggi","das Hotel","l'albergo","die Hotels"],["Viaggi","der Koffer","la valigia","die Koffer"],["Viaggi","der Pass","il passaporto","die Pässe"],["Viaggi","der Ausweis","il documento d'identità","die Ausweise"],["Viaggi","das Gepäck","il bagaglio",""],["Viaggi","die Ankunft","l'arrivo",""],["Viaggi","die Abfahrt","la partenza",""],["Viaggi","das Gleis","il binario","die Gleise"],["Viaggi","die Verspätung","il ritardo","die Verspätungen"],["Viaggi","die Fahrkarte","il biglietto (di viaggio)","die Fahrkarten"],["Viaggi","umsteigen","cambiare (treno, bus)",""],["Viaggi","buchen","prenotare",""],["Viaggi","das Einzelzimmer","la camera singola","die Einzelzimmer"],["Viaggi","das Doppelzimmer","la camera doppia","die Doppelzimmer"],["Viaggi","der Stadtplan","la cartina della città","die Stadtpläne"],["Viaggi","die Sehenswürdigkeit","l'attrazione turistica","die Sehenswürdigkeiten"],["Viaggi","abholen","andare a prendere",""],["Viaggi","der Ausflug","la gita","die Ausflüge"],
+["Lavoro e scuola","die Arbeit","il lavoro",""],["Lavoro e scuola","der Beruf","la professione","die Berufe"],["Lavoro e scuola","das Büro","l'ufficio","die Büros"],["Lavoro e scuola","der Lehrer","l'insegnante","die Lehrer"],["Lavoro e scuola","die Schule","la scuola","die Schulen"],["Lavoro e scuola","das Buch","il libro","die Bücher"],["Lavoro e scuola","das Heft","il quaderno","die Hefte"],["Lavoro e scuola","die Prüfung","l'esame","die Prüfungen"],["Lavoro e scuola","die Sprache","la lingua","die Sprachen"],["Lavoro e scuola","der Kurs","il corso","die Kurse"],["Lavoro e scuola","die Hausaufgabe","il compito a casa","die Hausaufgaben"],["Lavoro e scuola","das Handy","il cellulare","die Handys"],["Lavoro e scuola","der Kollege","il collega","die Kollegen"],["Lavoro e scuola","der Chef","il capo","die Chefs"],["Lavoro e scuola","die Pause","la pausa","die Pausen"],["Lavoro e scuola","das Geld","il denaro",""],["Lavoro e scuola","die Stelle","il posto di lavoro","die Stellen"],["Lavoro e scuola","die Firma","la ditta","die Firmen"],["Lavoro e scuola","verdienen","guadagnare",""],["Lavoro e scuola","arbeitslos","disoccupato",""],
+["Corpo e salute","der Kopf","la testa","die Köpfe"],["Corpo e salute","das Auge","l'occhio","die Augen"],["Corpo e salute","die Hand","la mano","die Hände"],["Corpo e salute","der Fuß","il piede","die Füße"],["Corpo e salute","der Bauch","la pancia","die Bäuche"],["Corpo e salute","der Rücken","la schiena",""],["Corpo e salute","das Bein","la gamba","die Beine"],["Corpo e salute","der Zahn","il dente","die Zähne"],["Corpo e salute","der Hals","la gola / il collo","die Hälse"],["Corpo e salute","der Arzt","il medico","die Ärzte"],["Corpo e salute","die Tablette","la pastiglia","die Tabletten"],["Corpo e salute","das Rezept","la ricetta","die Rezepte"],["Corpo e salute","krank","malato",""],["Corpo e salute","gesund","sano",""],["Corpo e salute","die Erkältung","il raffreddore","die Erkältungen"],["Corpo e salute","das Fieber","la febbre",""],["Corpo e salute","die Schmerzen","i dolori",""],["Corpo e salute","wehtun","fare male",""],
+["Vestiti","die Hose","i pantaloni","die Hosen"],["Vestiti","das Hemd","la camicia","die Hemden"],["Vestiti","das Kleid","il vestito (da donna)","die Kleider"],["Vestiti","der Rock","la gonna","die Röcke"],["Vestiti","die Jacke","la giacca","die Jacken"],["Vestiti","der Mantel","il cappotto","die Mäntel"],["Vestiti","der Schuh","la scarpa","die Schuhe"],["Vestiti","der Pullover","il maglione","die Pullover"],["Vestiti","die Tasche","la borsa","die Taschen"],["Vestiti","die Brille","gli occhiali","die Brillen"],["Vestiti","die Größe","la taglia","die Größen"],["Vestiti","anprobieren","provare (un vestito)",""],["Vestiti","tragen","indossare / portare",""],["Vestiti","passen","andare bene (di misura)",""],
+["Spesa e servizi","der Supermarkt","il supermercato","die Supermärkte"],["Spesa e servizi","der Markt","il mercato","die Märkte"],["Spesa e servizi","die Bäckerei","la panetteria","die Bäckereien"],["Spesa e servizi","der Preis","il prezzo","die Preise"],["Spesa e servizi","das Angebot","l'offerta","die Angebote"],["Spesa e servizi","die Kasse","la cassa","die Kassen"],["Spesa e servizi","bezahlen","pagare",""],["Spesa e servizi","bar","in contanti",""],["Spesa e servizi","die Tüte","il sacchetto","die Tüten"],["Spesa e servizi","die Flasche","la bottiglia","die Flaschen"],["Spesa e servizi","die Post","la posta",""],["Spesa e servizi","der Brief","la lettera","die Briefe"],["Spesa e servizi","das Paket","il pacco","die Pakete"],["Spesa e servizi","das Formular","il modulo","die Formulare"],["Spesa e servizi","die Unterschrift","la firma","die Unterschriften"],["Spesa e servizi","geöffnet","aperto",""],["Spesa e servizi","geschlossen","chiuso",""],["Spesa e servizi","kostenlos","gratis",""],["Spesa e servizi","der Eintritt","l'ingresso (prezzo)",""],["Spesa e servizi","die Anmeldung","l'iscrizione","die Anmeldungen"],
+["Tempo libero","die Freizeit","il tempo libero",""],["Tempo libero","das Hobby","l'hobby","die Hobbys"],["Tempo libero","der Film","il film","die Filme"],["Tempo libero","das Kino","il cinema","die Kinos"],["Tempo libero","das Konzert","il concerto","die Konzerte"],["Tempo libero","das Spiel","il gioco / la partita","die Spiele"],["Tempo libero","der Verein","l'associazione / il club","die Vereine"],["Tempo libero","schwimmen","nuotare",""],["Tempo libero","wandern","fare escursioni",""],["Tempo libero","tanzen","ballare",""],["Tempo libero","kochen","cucinare",""],["Tempo libero","reisen","viaggiare",""],["Tempo libero","die Party","la festa","die Partys"],["Tempo libero","das Geschenk","il regalo","die Geschenke"],["Tempo libero","die Einladung","l'invito","die Einladungen"],["Tempo libero","der Geburtstag","il compleanno","die Geburtstage"],["Tempo libero","das Fest","la festa (evento)","die Feste"],
+["Meteo e natura","das Wetter","il tempo (meteo)",""],["Meteo e natura","die Sonne","il sole",""],["Meteo e natura","der Regen","la pioggia",""],["Meteo e natura","der Schnee","la neve",""],["Meteo e natura","der Wind","il vento","die Winde"],["Meteo e natura","die Wolke","la nuvola","die Wolken"],["Meteo e natura","der Berg","la montagna","die Berge"],["Meteo e natura","der See","il lago","die Seen"],["Meteo e natura","das Meer","il mare","die Meere"],["Meteo e natura","der Wald","il bosco","die Wälder"],["Meteo e natura","der Baum","l'albero","die Bäume"],["Meteo e natura","die Blume","il fiore","die Blumen"],["Meteo e natura","der Frühling","la primavera",""],["Meteo e natura","der Sommer","l'estate",""],["Meteo e natura","der Herbst","l'autunno",""],["Meteo e natura","der Winter","l'inverno",""],["Meteo e natura","es regnet","piove",""],["Meteo e natura","es schneit","nevica",""],["Meteo e natura","sonnig","soleggiato",""],["Meteo e natura","bewölkt","nuvoloso",""],
+["Verbi utili","brauchen","avere bisogno di",""],["Verbi utili","suchen","cercare",""],["Verbi utili","fragen","chiedere",""],["Verbi utili","antworten","rispondere",""],["Verbi utili","erzählen","raccontare",""],["Verbi utili","erklären","spiegare",""],["Verbi utili","verstehen","capire",""],["Verbi utili","vergessen","dimenticare",""],["Verbi utili","beginnen","cominciare",""],["Verbi utili","aufhören","smettere",""],["Verbi utili","öffnen","aprire",""],["Verbi utili","schließen","chiudere",""],["Verbi utili","warten","aspettare",""],["Verbi utili","bringen","portare",""],["Verbi utili","bekommen","ricevere",""],["Verbi utili","glauben","credere",""],["Verbi utili","hoffen","sperare",""],["Verbi utili","denken","pensare",""],["Verbi utili","sich freuen","essere contento",""],["Verbi utili","sich treffen","incontrarsi",""],["Verbi utili","einladen","invitare",""],["Verbi utili","umziehen","traslocare",""],["Verbi utili","mieten","prendere in affitto",""],["Verbi utili","reparieren","riparare",""],["Verbi utili","empfehlen","consigliare",""],["Verbi utili","besuchen","visitare / andare a trovare",""],
+["Aggettivi","groß","grande / alto",""],["Aggettivi","klein","piccolo",""],["Aggettivi","alt","vecchio",""],["Aggettivi","jung","giovane",""],["Aggettivi","neu","nuovo",""],["Aggettivi","schön","bello",""],["Aggettivi","gut","buono / bene",""],["Aggettivi","schlecht","cattivo / male",""],["Aggettivi","teuer","caro",""],["Aggettivi","billig","economico",""],["Aggettivi","warm","caldo",""],["Aggettivi","kalt","freddo",""],["Aggettivi","schnell","veloce",""],["Aggettivi","langsam","lento",""],["Aggettivi","müde","stanco",""],["Aggettivi","glücklich","felice",""],["Aggettivi","früh","presto (di buon'ora)",""],["Aggettivi","spät","tardi",""],["Aggettivi","leicht","facile / leggero",""],["Aggettivi","schwer","difficile / pesante",""],["Aggettivi","wichtig","importante",""],["Aggettivi","langweilig","noioso",""],["Aggettivi","freundlich","gentile",""],["Aggettivi","ruhig","tranquillo",""],["Aggettivi","laut","rumoroso",""],["Aggettivi","sauber","pulito",""],["Aggettivi","schmutzig","sporco",""],
+["Paroline","aber","ma",""],["Paroline","oder","oppure",""],["Paroline","weil","perché (subordinata)",""],["Paroline","deshalb","perciò",""],["Paroline","dann","poi",""],["Paroline","zuerst","per prima cosa",""],["Paroline","danach","dopo (di ciò)",""],["Paroline","vielleicht","forse",""],["Paroline","leider","purtroppo",""],["Paroline","natürlich","naturalmente",""],["Paroline","schon","già",""],["Paroline","noch","ancora",""],["Paroline","nur","solo / soltanto",""],["Paroline","auch","anche",""],["Paroline","zusammen","insieme",""],["Paroline","allein","da solo",""],["Paroline","ungefähr","circa",""],["Paroline","sofort","subito",""],["Paroline","bald","presto (fra poco)",""],["Paroline","fast","quasi",""],["Paroline","genug","abbastanza",""],["Paroline","wirklich","davvero",""],["Paroline","gleich","subito / uguale",""],
+["Espressioni","Guten Morgen!","Buongiorno! (mattina)",""],["Espressioni","Wie geht's?","Come va?",""],["Espressioni","Danke schön!","Grazie mille!",""],["Espressioni","Entschuldigung!","Scusi!",""],["Espressioni","Ich verstehe nicht.","Non capisco.",""],["Espressioni","Wie viel kostet das?","Quanto costa?",""],["Espressioni","Ich hätte gern …","Vorrei …",""],["Espressioni","Bis bald!","A presto!",""],["Espressioni","Keine Ahnung.","Non ne ho idea.",""],["Espressioni","Wie heißt du?","Come ti chiami?",""],["Espressioni","Woher kommst du?","Da dove vieni?",""],["Espressioni","Noch einmal, bitte.","Ancora una volta, per favore.",""],["Espressioni","Das macht nichts.","Non fa niente.",""],["Espressioni","Gute Reise!","Buon viaggio!",""],["Espressioni","Gute Besserung!","Buona guarigione!",""],["Espressioni","Herzlichen Glückwunsch!","Auguri! / Congratulazioni!",""],["Espressioni","Das tut mir leid.","Mi dispiace.",""],["Espressioni","Einverstanden.","D'accordo.",""],["Espressioni","Viel Spaß!","Buon divertimento!",""],["Espressioni","Können Sie langsamer sprechen?","Può parlare più lentamente?",""],
+["Tecnologia e media","der Computer","il computer","die Computer"],["Tecnologia e media","das Internet","internet",""],["Tecnologia e media","die Nachricht","il messaggio / la notizia","die Nachrichten"],["Tecnologia e media","die E-Mail","l'e-mail","die E-Mails"],["Tecnologia e media","das Passwort","la password","die Passwörter"],["Tecnologia e media","der Bildschirm","lo schermo","die Bildschirme"],["Tecnologia e media","die Zeitung","il giornale","die Zeitungen"],["Tecnologia e media","das Fernsehen","la televisione",""],["Tecnologia e media","das Foto","la foto","die Fotos"],["Tecnologia e media","die Sendung","la trasmissione","die Sendungen"],["Tecnologia e media","das Programm","il programma","die Programme"],["Tecnologia e media","der Akku","la batteria (ricaricabile)","die Akkus"],["Tecnologia e media","anmachen","accendere",""],["Tecnologia e media","ausmachen","spegnere",""],["Tecnologia e media","schicken","mandare",""],["Tecnologia e media","herunterladen","scaricare",""],["Tecnologia e media","funktionieren","funzionare",""],["Tecnologia e media","kaputt","rotto",""],
+["Sentimenti e opinioni","die Angst","la paura","die Ängste"],["Sentimenti e opinioni","die Freude","la gioia",""],["Sentimenti e opinioni","der Spaß","il divertimento",""],["Sentimenti e opinioni","das Glück","la fortuna / la felicità",""],["Sentimenti e opinioni","das Problem","il problema","die Probleme"],["Sentimenti e opinioni","die Idee","l'idea","die Ideen"],["Sentimenti e opinioni","die Meinung","l'opinione","die Meinungen"],["Sentimenti e opinioni","traurig","triste",""],["Sentimenti e opinioni","froh","contento",""],["Sentimenti e opinioni","nervös","nervoso",""],["Sentimenti e opinioni","zufrieden","soddisfatto",""],["Sentimenti e opinioni","sauer","arrabbiato",""],["Sentimenti e opinioni","nett","simpatico / gentile",""],["Sentimenti e opinioni","lustig","divertente",""],["Sentimenti e opinioni","toll","fantastico",""],["Sentimenti e opinioni","schrecklich","terribile",""],["Sentimenti e opinioni","einfach","semplice",""],["Sentimenti e opinioni","schwierig","difficile",""],["Sentimenti e opinioni","richtig","giusto",""],["Sentimenti e opinioni","falsch","sbagliato",""],["Sentimenti e opinioni","sicher","sicuro",""],["Sentimenti e opinioni","möglich","possibile",""],["Sentimenti e opinioni","fertig","pronto / finito",""],["Sentimenti e opinioni","besetzt","occupato",""],["Sentimenti e opinioni","frei","libero",""],
+["Uffici e documenti","das Amt","l'ufficio pubblico","die Ämter"],["Uffici e documenti","der Antrag","la domanda (richiesta)","die Anträge"],["Uffici e documenti","die Bewerbung","la candidatura","die Bewerbungen"],["Uffici e documenti","der Lebenslauf","il curriculum","die Lebensläufe"],["Uffici e documenti","der Vertrag","il contratto","die Verträge"],["Uffici e documenti","die Versicherung","l'assicurazione","die Versicherungen"],["Uffici e documenti","das Konto","il conto in banca","die Konten"],["Uffici e documenti","die Überweisung","il bonifico","die Überweisungen"],["Uffici e documenti","die Gebühr","la tariffa / la tassa","die Gebühren"],["Uffici e documenti","der Führerschein","la patente","die Führerscheine"],["Uffici e documenti","das Geburtsdatum","la data di nascita",""],["Uffici e documenti","der Familienname","il cognome","die Familiennamen"],["Uffici e documenti","der Vorname","il nome (di battesimo)","die Vornamen"],["Uffici e documenti","die Staatsangehörigkeit","la cittadinanza",""],["Uffici e documenti","ausfüllen","compilare",""],["Uffici e documenti","unterschreiben","firmare",""],["Uffici e documenti","anmelden","iscrivere / registrare",""],["Uffici e documenti","kündigen","disdire / licenziarsi",""],["Uffici e documenti","die Öffnungszeiten","gli orari di apertura",""],["Uffici e documenti","der Kunde","il cliente","die Kunden"],["Uffici e documenti","die Auskunft","l'informazione","die Auskünfte"],
+["Animali e luoghi","der Hund","il cane","die Hunde"],["Animali e luoghi","die Katze","il gatto","die Katzen"],["Animali e luoghi","das Pferd","il cavallo","die Pferde"],["Animali e luoghi","der Vogel","l'uccello","die Vögel"],["Animali e luoghi","das Tier","l'animale","die Tiere"],["Animali e luoghi","das Dorf","il paesino","die Dörfer"],["Animali e luoghi","das Land","il paese / la campagna","die Länder"],["Animali e luoghi","die Insel","l'isola","die Inseln"],["Animali e luoghi","der Fluss","il fiume","die Flüsse"],["Animali e luoghi","der Strand","la spiaggia","die Strände"],
+["Routine","duschen","fare la doccia",""],["Routine","frühstücken","fare colazione",""],["Routine","putzen","pulire",""],["Routine","aufräumen","mettere in ordine",""],["Routine","die Wäsche","il bucato",""],["Routine","der Müll","la spazzatura",""],["Routine","das Geschirr","le stoviglie",""],["Routine","der Haushalt","le faccende di casa",""],["Routine","sich anziehen","vestirsi",""],["Routine","sich ausruhen","riposarsi",""],["Routine","sich beeilen","sbrigarsi",""],["Routine","das Handtuch","l'asciugamano","die Handtücher"],["Routine","die Seife","il sapone","die Seifen"],["Routine","die Zahnbürste","lo spazzolino","die Zahnbürsten"],
+["Espressioni","Was bedeutet das?","Che cosa significa?",""],["Espressioni","Wie schreibt man das?","Come si scrive?",""],["Espressioni","Ich hätte eine Frage.","Avrei una domanda.",""],["Espressioni","Das stimmt.","È vero. / Esatto.",""],["Espressioni","Das ist mir egal.","Per me è uguale.",""],["Espressioni","Es kommt darauf an.","Dipende.",""],["Espressioni","Keine Sorge!","Non preoccuparti!",""],["Espressioni","Alles klar.","Tutto chiaro.",""]
+].map(function(v,i){var m=v[1].match(/^(der|die|das) /);return {id:i,c:v[0],de:v[1],it:v[2],pl:v[3],g:m?m[1]:null,bare:v[1].replace(/^(der|die|das) /,'')};});
+VOC.forEach(function(v){ if(v.de==="die Eltern"||v.de==="die Schmerzen"||v.de==="die Öffnungszeiten") v.g=null; });
+var CATS=[];VOC.forEach(function(v){if(CATS.indexOf(v.c)<0)CATS.push(v.c);});
+
+/* ================== VERBI ================== */
+var PRON=["ich","du","er/sie/es","wir","ihr","sie/Sie"];
+var AUX={h:["habe","hast","hat","haben","habt","haben"],s:["bin","bist","ist","sind","seid","sind"]};
+var VERBS=[
+["sein","essere","bin,bist,ist,sind,seid,sind","s:gewesen"],
+["haben","avere","habe,hast,hat,haben,habt,haben","h:gehabt"],
+["werden","diventare","werde,wirst,wird,werden,werdet,werden","s:geworden"],
+["gehen","andare (a piedi)","gehe,gehst,geht,gehen,geht,gehen","s:gegangen"],
+["kommen","venire","komme,kommst,kommt,kommen,kommt,kommen","s:gekommen"],
+["fahren","andare (con un mezzo)","fahre,fährst,fährt,fahren,fahrt,fahren","s:gefahren"],
+["fliegen","volare","fliege,fliegst,fliegt,fliegen,fliegt,fliegen","s:geflogen"],
+["laufen","correre / camminare","laufe,läufst,läuft,laufen,lauft,laufen","s:gelaufen"],
+["bleiben","restare","bleibe,bleibst,bleibt,bleiben,bleibt,bleiben","s:geblieben"],
+["machen","fare","mache,machst,macht,machen,macht,machen","h:gemacht"],
+["spielen","giocare / suonare","spiele,spielst,spielt,spielen,spielt,spielen","h:gespielt"],
+["arbeiten","lavorare","arbeite,arbeitest,arbeitet,arbeiten,arbeitet,arbeiten","h:gearbeitet"],
+["wohnen","abitare","wohne,wohnst,wohnt,wohnen,wohnt,wohnen","h:gewohnt"],
+["lernen","imparare / studiare","lerne,lernst,lernt,lernen,lernt,lernen","h:gelernt"],
+["kaufen","comprare","kaufe,kaufst,kauft,kaufen,kauft,kaufen","h:gekauft"],
+["bezahlen","pagare","bezahle,bezahlst,bezahlt,bezahlen,bezahlt,bezahlen","h:bezahlt"],
+["besuchen","visitare","besuche,besuchst,besucht,besuchen,besucht,besuchen","h:besucht"],
+["studieren","studiare (università)","studiere,studierst,studiert,studieren,studiert,studieren","h:studiert"],
+["finden","trovare","finde,findest,findet,finden,findet,finden","h:gefunden"],
+["sprechen","parlare","spreche,sprichst,spricht,sprechen,sprecht,sprechen","h:gesprochen"],
+["essen","mangiare","esse,isst,isst,essen,esst,essen","h:gegessen"],
+["trinken","bere","trinke,trinkst,trinkt,trinken,trinkt,trinken","h:getrunken"],
+["lesen","leggere","lese,liest,liest,lesen,lest,lesen","h:gelesen"],
+["sehen","vedere","sehe,siehst,sieht,sehen,seht,sehen","h:gesehen"],
+["schlafen","dormire","schlafe,schläfst,schläft,schlafen,schlaft,schlafen","h:geschlafen"],
+["nehmen","prendere","nehme,nimmst,nimmt,nehmen,nehmt,nehmen","h:genommen"],
+["geben","dare","gebe,gibst,gibt,geben,gebt,geben","h:gegeben"],
+["helfen","aiutare","helfe,hilfst,hilft,helfen,helft,helfen","h:geholfen"],
+["treffen","incontrare","treffe,triffst,trifft,treffen,trefft,treffen","h:getroffen"],
+["schreiben","scrivere","schreibe,schreibst,schreibt,schreiben,schreibt,schreiben","h:geschrieben"],
+["bringen","portare","bringe,bringst,bringt,bringen,bringt,bringen","h:gebracht"],
+["denken","pensare","denke,denkst,denkt,denken,denkt,denken","h:gedacht"],
+["beginnen","cominciare","beginne,beginnst,beginnt,beginnen,beginnt,beginnen","h:begonnen"],
+["verstehen","capire","verstehe,verstehst,versteht,verstehen,versteht,verstehen","h:verstanden"],
+["vergessen","dimenticare","vergesse,vergisst,vergisst,vergessen,vergesst,vergessen","h:vergessen"],
+["bekommen","ricevere","bekomme,bekommst,bekommt,bekommen,bekommt,bekommen","h:bekommen"],
+["tragen","portare / indossare","trage,trägst,trägt,tragen,tragt,tragen","h:getragen"],
+["waschen","lavare","wasche,wäschst,wäscht,waschen,wascht,waschen","h:gewaschen"],
+["heißen","chiamarsi","heiße,heißt,heißt,heißen,heißt,heißen","h:geheißen"],
+["wissen","sapere","weiß,weißt,weiß,wissen,wisst,wissen","h:gewusst"],
+["können","potere / sapere fare","kann,kannst,kann,können,könnt,können","h:gekonnt"],
+["müssen","dovere","muss,musst,muss,müssen,müsst,müssen","h:gemusst"],
+["wollen","volere","will,willst,will,wollen,wollt,wollen","h:gewollt"],
+["sollen","dovere (consiglio / incarico)","soll,sollst,soll,sollen,sollt,sollen","h:gesollt"],
+["mögen","piacere / gradire","mag,magst,mag,mögen,mögt,mögen","h:gemocht"],
+["dürfen","avere il permesso","darf,darfst,darf,dürfen,dürft,dürfen","h:gedurft"],
+["aufstehen","alzarsi","stehe auf,stehst auf,steht auf,stehen auf,steht auf,stehen auf","s:aufgestanden"],
+["ankommen","arrivare","komme an,kommst an,kommt an,kommen an,kommt an,kommen an","s:angekommen"],
+["einkaufen","fare la spesa","kaufe ein,kaufst ein,kauft ein,kaufen ein,kauft ein,kaufen ein","h:eingekauft"],
+["anrufen","telefonare","rufe an,rufst an,ruft an,rufen an,ruft an,rufen an","h:angerufen"],
+["einladen","invitare","lade ein,lädst ein,lädt ein,laden ein,ladet ein,laden ein","h:eingeladen"],
+["mitnehmen","portare con sé","nehme mit,nimmst mit,nimmt mit,nehmen mit,nehmt mit,nehmen mit","h:mitgenommen"],
+["umziehen","traslocare","ziehe um,ziehst um,zieht um,ziehen um,zieht um,ziehen um","s:umgezogen"],
+["fernsehen","guardare la TV","sehe fern,siehst fern,sieht fern,sehen fern,seht fern,sehen fern","h:ferngesehen"]
+].map(function(v){return {inf:v[0],it:v[1],pr:v[2].split(","),aux:v[3].charAt(0),part:v[3].slice(2)};});
+var PTEND=["e","est","e","en","et","en"];
+var PT={sein:["war","warst","war","waren","wart","waren"]};
+[["haben","hatt"],["werden","wurd"],["können","konnt"],["müssen","musst"],["wollen","wollt"],["sollen","sollt"],["dürfen","durft"],["mögen","mocht"],["wissen","wusst"]].forEach(function(p){PT[p[0]]=PTEND.map(function(e){return p[1]+e;});});
+var PTV=VERBS.filter(function(v){return PT[v.inf];});
+
+/* ================== GRAMMATICA ================== */
+var GR=[
+["Akkusativ","Ich habe ___ Bruder.",["einen","ein","einem"],"haben regge l'accusativo; der Bruder (m.) → einen."],
+["Akkusativ","Wir kaufen ___ Auto.",["ein","einen","einem"],"Neutro: all'accusativo ein resta ein."],
+["Akkusativ","Siehst du ___ Frau dort?",["die","der","den"],"Femminile: all'accusativo die resta die."],
+["Akkusativ","Ich trinke ___ Kaffee.",["den","der","dem"],"der Kaffee → accusativo den."],
+["Akkusativ","Er hat ___ Zeit.",["keine","kein","keinen"],"die Zeit (f.) → keine."],
+["Akkusativ","Ich brauche ___ Schlüssel.",["meinen","mein","meinem"],"der Schlüssel (m.) → meinen all'accusativo."],
+["Akkusativ","Es gibt hier ___ Supermarkt.",["einen","ein","einem"],"es gibt + accusativo; der Supermarkt → einen."],
+["Dativ","Ich helfe ___ Mutter.",["der","die","den"],"helfen regge il dativo; femminile → der."],
+["Dativ","Das Buch gehört ___ Lehrer.",["dem","den","der"],"gehören + dativo; maschile → dem."],
+["Dativ","Ich gebe ___ Kind einen Apfel.",["dem","das","den"],"Chi riceve va al dativo: das Kind → dem Kind."],
+["Dativ","Wie geht es ___?",["dir","du","dich"],"Wie geht es + dativo: mir, dir, ihm, ihr…"],
+["Dativ","Ich wohne bei ___ Eltern.",["meinen","meine","meiner"],"bei + dativo; plurale dativo: -en."],
+["Dativ","Kannst du ___ helfen?",["mir","mich","ich"],"helfen + dativo → mir."],
+["Dativ","Ich schenke ___ Freundin Blumen.",["meiner","meine","meinen"],"A chi? → dativo; femminile: meiner."],
+["Dativ","Die Jacke passt ___ nicht. (a lui)",["ihm","ihn","er"],"passen + dativo: ihm."],
+["Preposizioni","Ich fahre mit ___ Bus.",["dem","den","der"],"mit vuole sempre il dativo."],
+["Preposizioni","Nach ___ Arbeit gehe ich nach Hause.",["der","die","dem"],"nach + dativo; die Arbeit → der Arbeit."],
+["Preposizioni","Das Geschenk ist für ___ Vater.",["meinen","meinem","mein"],"für vuole sempre l'accusativo."],
+["Preposizioni","Wir gehen durch ___ Park.",["den","dem","der"],"durch + accusativo."],
+["Preposizioni","Ich komme ___ Italien.",["aus","von","nach"],"Provenienza da un paese: aus."],
+["Preposizioni","Ich fahre ___ Deutschland.",["nach","in","zu"],"Paesi senza articolo e città: nach."],
+["Preposizioni","Ich gehe ___ Arzt.",["zum","zur","nach"],"Da una persona: zu + dem = zum."],
+["Preposizioni","Ich gehe ___ Schule.",["zur","zum","nach"],"die Schule → zu + der = zur."],
+["Preposizioni","Ich lerne ___ einem Jahr Deutsch.",["seit","vor","für"],"Da (tempo che dura ancora): seit + dativo."],
+["Preposizioni","___ zwei Jahren war ich in Berlin.",["Vor","Seit","Nach"],"Due anni fa: vor + dativo."],
+["Preposizioni","Der Kurs beginnt ___ Montag.",["am","im","um"],"Giorni: am. Mesi e stagioni: im. Ore: um."],
+["Preposizioni","Der Film beginnt ___ 20 Uhr.",["um","am","im"],"Orari precisi: um."],
+["Preposizioni","___ Sommer fahren wir ans Meer.",["Im","Am","Um"],"Stagioni e mesi: im."],
+["Preposizioni","Ich fahre ohne ___ Bruder.",["meinen","meinem","mein"],"ohne + accusativo."],
+["Wechselpräp.","Das Buch liegt auf ___ Tisch.",["dem","den","der"],"Wo? (stato) → dativo."],
+["Wechselpräp.","Ich lege das Buch auf ___ Tisch.",["den","dem","der"],"Wohin? (movimento verso) → accusativo."],
+["Wechselpräp.","Wir gehen heute ___ Kino.",["ins","im","in dem"],"Wohin? in + das = ins."],
+["Wechselpräp.","Ich bin gerade ___ Supermarkt.",["im","in den","ins"],"Wo? in + dem = im."],
+["Wechselpräp.","Hängst du das Bild an ___ Wand?",["die","der","den"],"Wohin? → accusativo; die Wand → die."],
+["Wechselpräp.","Die Katze schläft unter ___ Bett.",["dem","das","den"],"Wo? → dativo; das Bett → dem Bett."],
+["Wechselpräp.","Stell die Flasche in ___ Kühlschrank!",["den","dem","der"],"stellen = movimento (Wohin?) → accusativo."],
+["Wechselpräp.","Im Sommer fahren wir ___ Meer.",["ans","am","im"],"Wohin? an + das = ans Meer."],
+["Modali","Ich ___ heute nicht kommen.",["kann","können","kannst"],"können: ich kann (1ª e 3ª sing. senza desinenza)."],
+["Modali","Du ___ mehr Wasser trinken.",["musst","muss","müssen"],"müssen: du musst."],
+["Modali","___ ich hier rauchen?",["Darf","Dürfen","Darfst"],"dürfen: ich darf."],
+["Modali","Ich möchte einen Kaffee ___.",["trinken","trinke","getrunken"],"Col modale l'infinito va in fondo alla frase."],
+["Modali","Er ___ kein Fleisch essen.",["will","wollt","willst"],"wollen: er will."],
+["Modali","Der Arzt sagt, ich ___ im Bett bleiben.",["soll","sollst","sollen"],"sollen: consiglio o incarico di un altro; ich soll."],
+["Modali","Hier ___ man nicht parken.",["darf","dürfen","darfst"],"man = 3ª singolare: man darf nicht = è vietato."],
+["Perfekt","Gestern ___ ich nach Berlin gefahren.",["bin","habe","war"],"Verbi di movimento: Perfekt con sein."],
+["Perfekt","Wir haben Pizza ___.",["gegessen","geessen","essen"],"essen → gegessen (irregolare)."],
+["Perfekt","Hast du gut ___?",["geschlafen","geschläft","schlafen"],"schlafen → geschlafen."],
+["Perfekt","Er ___ um 7 Uhr aufgestanden.",["ist","hat","wird"],"aufstehen: cambiamento di stato → sein."],
+["Perfekt","Ich habe dich gestern ___.",["angerufen","geanrufen","anrufen"],"Separabili: ge- tra prefisso e verbo → an-ge-rufen."],
+["Perfekt","Sie hat ein Buch ___.",["gekauft","kaufte","gekaufen"],"Verbo regolare: ge- + radice + -t."],
+["Perfekt","Ich habe das nicht ___.",["verstanden","geverstanden","verstehen"],"Prefissi be-, ver-, er-, ent-: niente ge-."],
+["Perfekt","Wir ___ zu Hause geblieben.",["sind","haben","waren"],"bleiben vuole sein, anche senza movimento."],
+["Perfekt","Er hat in Wien ___.",["studiert","gestudiert","studieren"],"Verbi in -ieren: participio senza ge-."],
+["Perfekt","Was ___ passiert?",["ist","hat","war"],"passieren → sein: Was ist passiert?"],
+["Separabili","Wann ___ der Zug an?",["kommt","ankommt","kommen"],"ankommen: verbo coniugato in 2ª posizione, an alla fine."],
+["Separabili","Ich kaufe heute im Supermarkt ___.",["ein","an","auf"],"einkaufen → ich kaufe … ein."],
+["Separabili","Kannst du mich morgen ___?",["anrufen","rufen an","anrufst"],"Con un modale il separabile resta unito, all'infinito."],
+["Separabili","Ich ___ um sechs Uhr auf.",["stehe","aufstehe","stehen"],"aufstehen → ich stehe … auf."],
+["Separabili","Wir laden dich zur Party ___.",["ein","an","mit"],"einladen → wir laden … ein."],
+["Ordine","Heute ___ ins Kino.",["gehe ich","ich gehe","ich ins gehe"],"Il verbo è sempre in 2ª posizione → inversione."],
+["Ordine","Ich lerne Deutsch, weil ich in Wien ___.",["arbeiten möchte","möchte arbeiten","möchte ich arbeiten"],"Dopo weil il verbo coniugato va in fondo."],
+["Ordine","Ich glaube, dass er krank ___.",["ist","sein","bist"],"Dopo dass il verbo va in fondo."],
+["Ordine","___ Deutsch?",["Sprichst du","Du sprichst","Sprechen du"],"Domanda sì/no: verbo in 1ª posizione."],
+["Ordine","Wenn es regnet, ___ zu Hause.",["bleibe ich","ich bleibe","ich bleiben"],"La subordinata conta come 1ª posizione → poi il verbo."],
+["Ordine","Ich bin müde, ___ ich schlecht geschlafen habe.",["weil","denn","deshalb"],"Verbo in fondo → serve weil (denn non sposta il verbo)."],
+["Ordine","Am Samstag ___ wir Freunde.",["besuchen","besucht","zu besuchen"],"Tempo in 1ª posizione, verbo coniugato in 2ª."],
+["Connettori","Ich weiß nicht, ___ er heute kommt.",["ob","wenn","weil"],"Domanda indiretta sì/no: ob."],
+["Connettori","___ ich Zeit habe, besuche ich dich.",["Wenn","Ob","Denn"],"Se / quando (condizione): wenn."],
+["Connettori","Er sagt, ___ er morgen arbeiten muss.",["dass","das","denn"],"Che (congiunzione) = dass, con doppia s."],
+["Connettori","Ich bleibe zu Hause, ___ ich bin krank.",["denn","weil","dass"],"Il verbo resta in 2ª posizione → denn."],
+["Connettori","Es regnet, ___ nehme ich einen Schirm.",["deshalb","weil","denn"],"deshalb occupa la 1ª posizione, poi viene il verbo."],
+["Connettori","Ich möchte kommen, ___ ich habe keine Zeit.",["aber","weil","dass"],"aber = ma; non cambia l'ordine."],
+["Connettori","Hast du Lust, ins Kino ___?",["zu gehen","gehen","gegangen"],"Lust haben + zu + infinito."],
+["Connettori","Zuerst frühstücke ich, ___ gehe ich zur Arbeit.",["dann","weil","dass"],"zuerst … dann: prima … poi."],
+["Pronomi","Das ist ___ Schwester. (mia)",["meine","mein","meinen"],"die Schwester (f.) → meine."],
+["Pronomi","Wie heißt ___ Hund? (tuo)",["dein","deine","deinen"],"der Hund, nominativo → dein."],
+["Pronomi","Ich liebe ___. (te)",["dich","dir","du"],"lieben + accusativo → dich."],
+["Pronomi","Das ist ___ Auto. (loro)",["ihr","sein","euer"],"loro → ihr."],
+["Pronomi","Gefällt ___ das Buch? (a te)",["dir","dich","du"],"gefallen + dativo."],
+["Pronomi","Kennst du Anna? – Ja, ich kenne ___.",["sie","ihr","ihn"],"kennen + accusativo; femminile → sie."],
+["Pronomi","Wo ist der Schlüssel? – ___ liegt auf dem Tisch.",["Er","Es","Ihn"],"der Schlüssel è maschile → er."],
+["Pronomi","Herr Weber, ist das ___ Tasche?",["Ihre","deine","Ihr"],"Forma di cortesia: Ihr-, con maiuscola; die Tasche → Ihre."],
+["Riflessivi","Ich freue ___ auf den Urlaub.",["mich","mir","sich"],"sich freuen: ich freue mich."],
+["Riflessivi","Wir treffen ___ um acht.",["uns","sich","euch"],"sich treffen: wir treffen uns."],
+["Riflessivi","Interessierst du ___ für Sport?",["dich","dir","sich"],"sich interessieren: du interessierst dich."],
+["Riflessivi","Er zieht ___ schnell an.",["sich","ihn","ihm"],"3ª persona: sempre sich."],
+["Riflessivi","Setzen Sie ___ bitte!",["sich","Sie","Ihnen"],"Forma di cortesia: riflessivo sich."],
+["Riflessivi","Ich wasche ___ die Hände.",["mir","mich","sich"],"Se c'è un altro oggetto (die Hände), il riflessivo va al dativo: mir."],
+["Aggettivi","Das ist ein schön___ Haus.",["-es","-e","-en"],"ein + neutro nominativo: -es (ein schönes Haus)."],
+["Aggettivi","Ich habe einen neu___ Computer.",["-en","-er","-e"],"Maschile accusativo: sempre -en."],
+["Aggettivi","Der alt___ Mann wohnt hier.",["-e","-er","-en"],"der + nominativo: -e."],
+["Aggettivi","Sie trägt eine rot___ Jacke.",["-e","-en","-er"],"eine + femminile (nom./acc.): -e."],
+["Aggettivi","Ich wohne in einer klein___ Wohnung.",["-en","-e","-er"],"Al dativo l'aggettivo prende sempre -en."],
+["Aggettivi","Das sind nett___ Leute.",["-e","-en","-er"],"Plurale senza articolo, nominativo: -e."],
+["Aggettivi","Wir fahren mit dem neu___ Auto.",["-en","-em","-e"],"Dativo con articolo: -en."],
+["Aggettivi","Ein gut___ Freund hilft immer.",["-er","-e","-en"],"ein + maschile nominativo: -er (ein guter Freund)."],
+["Aggettivi","Ich mag die klein___ Kinder.",["-en","-e","-es"],"Plurale con articolo: -en."],
+["Imperativo","___ bitte das Fenster! (du)",["Öffne","Öffnest","Öffnen"],"Imperativo du: radice senza -st (öffne!)."],
+["Imperativo","___ Sie bitte hier!",["Warten","Wartet","Warte"],"Forma Sie: infinito + Sie."],
+["Imperativo","___ mir bitte! (du, helfen)",["Hilf","Helf","Hilfst"],"e → i resta anche all'imperativo: hilf!"],
+["Imperativo","Kinder, ___ leise! (ihr)",["seid","sei","sind"],"sein: sei! (du), seid! (ihr), seien Sie!"],
+["Imperativo","___ nicht so schnell! (du, fahren)",["Fahr","Fähr","Fährst"],"a → ä sparisce all'imperativo: fahr!"],
+["Imperativo","___ mich bitte morgen an! (du)",["Ruf","Rufst","Anruf"],"Separabile: Ruf … an!"],
+["Konjunktiv II","___ Sie mir bitte helfen?",["Könnten","Konnten","Kann"],"Richiesta gentile: Könnten Sie …?"],
+["Konjunktiv II","Ich ___ gern einen Tee.",["hätte","hatte","wäre"],"Ich hätte gern … = vorrei."],
+["Konjunktiv II","Ich ___ gern nach Japan fahren.",["würde","wurde","wäre"],"würde + infinito = condizionale."],
+["Konjunktiv II","Du ___ mehr schlafen. (consiglio)",["solltest","sollen","sollt"],"Consiglio: du solltest …"],
+["Konjunktiv II","___ ich bitte die Rechnung haben?",["Könnte","Könnten","Kannst"],"ich könnte = potrei."],
+["Konjunktiv II","Das ___ toll!",["wäre","würde","hätte"],"Das wäre toll = sarebbe fantastico."],
+["Negazione","Ich habe ___ Auto.",["kein","nicht","keinen"],"Nome con articolo indeterminativo → kein (das Auto: kein)."],
+["Negazione","Das ist ___ richtig.",["nicht","kein","keine"],"Aggettivi e verbi si negano con nicht."],
+["Negazione","Ich komme heute ___.",["nicht","kein","nichts"],"Negare il verbo: nicht."],
+["Negazione","Ich habe ___ gegessen. (niente)",["nichts","kein","niemand"],"nichts = niente; niemand = nessuno."],
+["Negazione","Trinkst du keinen Kaffee? – ___, ich trinke gern Kaffee.",["Doch","Ja","Nein"],"Per rispondere «sì» a una domanda negativa: doch."],
+["Domande","___ wohnst du? – In Mailand.",["Wo","Woher","Wohin"],"Wo = dove (stato)."],
+["Domande","___ fährst du im Sommer? – Nach Spanien.",["Wohin","Wo","Woher"],"Wohin = verso dove."],
+["Domande","___ kommt der Zug an? – Um 9 Uhr.",["Wann","Wie lange","Was"],"Wann = quando."],
+["Domande","___ kostet das Ticket?",["Wie viel","Wie viele","Wie lange"],"Wie viel = quanto (non numerabile / prezzo)."],
+["Domande","___ gehört die Tasche? – Mir.",["Wem","Wen","Wer"],"Dativo → wem."],
+["Domande","___ Farbe magst du?",["Welche","Welcher","Was"],"die Farbe → welche."],
+["Domande","___ dauert der Kurs? – Drei Monate.",["Wie lange","Wann","Wie viel"],"Durata: wie lange."],
+["Verbo + prep.","Ich warte ___ den Bus.",["auf","für","an"],"warten auf + accusativo."],
+["Verbo + prep.","Ich denke oft ___ dich.",["an","auf","über"],"denken an + accusativo."],
+["Verbo + prep.","Wir sprechen ___ das Wetter.",["über","an","auf"],"sprechen über + accusativo."],
+["Verbo + prep.","Ich interessiere mich ___ Kunst.",["für","an","über"],"sich interessieren für."],
+["Verbo + prep.","Ich freue mich ___ das Wochenende. (deve ancora arrivare)",["auf","über","für"],"sich freuen auf = non vedere l'ora; über = per qualcosa di già successo."],
+["Verbo + prep.","Ich habe Angst ___ Hunden.",["vor","von","für"],"Angst haben vor + dativo."],
+["Verbo + prep.","Sie telefoniert ___ ihrer Mutter.",["mit","zu","bei"],"telefonieren mit + dativo."],
+["Comparativo","Berlin ist ___ als München.",["größer","groß","am größten"],"Comparativo: -er + als (groß → größer)."],
+["Comparativo","Ich trinke ___ Tee als Kaffee.",["lieber","gerner","mehr gern"],"gern → lieber → am liebsten."],
+["Comparativo","Sie ist so alt ___ ich.",["wie","als","dass"],"Uguaglianza: so … wie."],
+["Comparativo","Das ist das ___ Auto.",["schnellste","schneller","schnellsten"],"Superlativo attributivo: das schnellste Auto."],
+["Comparativo","Das Essen hier ist ___ als dort.",["besser","guter","mehr gut"],"gut → besser → am besten."],
+["Comparativo","Im Winter ist es hier ___.",["am kältesten","kälteste","am kälter"],"Superlativo predicativo: am + -sten."],
+["Comparativo","Ich habe ___ Zeit als du.",["mehr","viel","mehrer"],"viel → mehr → am meisten."],
+["Präteritum","Gestern ___ ich krank.",["war","bin","habe"],"sein si usa soprattutto al Präteritum: ich war."],
+["Präteritum","Wir ___ keine Zeit.",["hatten","hattet","hatte"],"haben → wir hatten."],
+["Präteritum","Als Kind ___ ich nicht schwimmen.",["konnte","kann","könnte"],"Modali al passato: Präteritum → ich konnte."],
+["Präteritum","Wo ___ du gestern?",["warst","war","wart"],"sein: du warst."],
+["Präteritum","Ich ___ gestern lange arbeiten.",["musste","muss","gemusst"],"müssen → ich musste."],
+["Futuro","Morgen ___ es regnen.",["wird","werdet","wirst"],"werden + infinito: es wird regnen."],
+["Futuro","Ich ___ nächstes Jahr nach Wien ziehen.",["werde","wird","würde"],"Futuro: ich werde … ziehen."],
+["Varie","«Es ist halb drei» significa:",["2:30","3:30","3:15"],"halb drei = mezz'ora prima delle tre."],
+["Varie","«Viertel vor acht» è:",["7:45","8:15","8:45"],"vor = meno: le otto meno un quarto."],
+["Varie","«Ich habe Hunger» significa:",["Ho fame","Ho sete","Ho sonno"],"Hunger = fame, Durst = sete."],
+["Varie","Il plurale di «das Buch» è:",["die Bücher","die Buchs","die Büche"],"Molti neutri: Umlaut + -er."],
+["Varie","Ich ___ 31 Jahre alt.",["bin","habe","werde"],"L'età si dice con sein: Ich bin … Jahre alt."],
+["Varie","Heute ist der ___ Mai. (3)",["dritte","drei","dritten"],"Date: numero ordinale; der dritte Mai."],
+["Varie","Ich habe ___ 3. Mai Geburtstag.",["am","im","um"],"Date: am + ordinale (am dritten Mai)."],
+["Plurali","Il plurale di «der Apfel» è:",["die Äpfel","die Apfeln","die Apfels"],"Solo Umlaut: der Apfel → die Äpfel."],
+["Plurali","Il plurale di «die Frau» è:",["die Frauen","die Fraue","die Fräue"],"Femminili: quasi sempre -(e)n."],
+["Plurali","Il plurale di «das Auto» è:",["die Autos","die Auten","die Autoe"],"Parole straniere che finiscono in vocale: -s."],
+["Plurali","Il plurale di «das Kind» è:",["die Kinder","die Kinde","die Kinden"],"Molti neutri brevi: -er."],
+["Plurali","Il plurale di «der Lehrer» è:",["die Lehrer","die Lehrers","die Lehrern"],"Maschili in -er: invariati (Lehrern solo al dativo)."],
+["Plurali","Il plurale di «die Stadt» è:",["die Städte","die Stadten","die Städter"],"Umlaut + -e: die Städte."],
+["Plurali","Ich spiele mit den ___.",["Kindern","Kinder","Kinds"],"Dativo plurale: il nome prende -n (mit den Kindern)."],
+["Indefiniti","Ist hier ___? – Nein, das Büro ist leer.",["jemand","niemand","etwas"],"jemand = qualcuno; niemand = nessuno."],
+["Indefiniti","Ich habe Hunger. Ich möchte ___ essen.",["etwas","nichts","jemand"],"etwas = qualcosa."],
+["Indefiniti","___ Kinder gehen in die Schule.",["Alle","Alles","Jeder"],"alle + plurale; jeder + singolare; alles = tutto."],
+["Indefiniti","___ Tag lerne ich Deutsch.",["Jeden","Jeder","Alle"],"Tempo all'accusativo: jeden Tag."],
+["Indefiniti","In Deutschland isst ___ viel Brot.",["man","Mann","jemand"],"man = «si» impersonale, con verbo alla 3ª singolare."],
+["Indefiniti","Möchtest du noch ___ Kaffee?",["etwas","jemand","alle"],"etwas Kaffee = un po' di caffè."],
+["Possesso","Das ist das Auto ___ Vater.",["von meinem","von mein","von meinen"],"Possesso a livello A2: von + dativo."],
+["Possesso","Das ist ___ Buch. (di Anna)",["Annas","Anna's","von Annas"],"Coi nomi propri: -s senza apostrofo."],
+["Dativ","Ich danke ___ für die Hilfe. (a te)",["dir","dich","du"],"danken + dativo."],
+["Dativ","Das Essen schmeckt ___ gut. (a me)",["mir","mich","ich"],"schmecken + dativo."],
+["Dativ","Kannst du ___ das Salz geben?",["mir","mich","mein"],"A chi? → dativo: mir."],
+["Dativ","Er antwortet ___ Lehrerin.",["der","die","den"],"antworten + dativo; femminile → der."],
+["Akkusativ","Ich rufe ___ morgen an. (lui)",["ihn","ihm","er"],"anrufen + accusativo: ihn."],
+["Akkusativ","Ich besuche ___ Großeltern.",["meine","meinen","meiner"],"Accusativo plurale: meine."],
+["Infinito con zu","Ich habe vergessen, Brot ___.",["zu kaufen","kaufen","gekauft"],"vergessen + zu + infinito."],
+["Infinito con zu","Ich habe keine Zeit, dich ___.",["anzurufen","zu anrufen","anrufen"],"Separabili: zu va in mezzo → an-zu-rufen."],
+["Infinito con zu","Ich muss heute lange ___.",["arbeiten","zu arbeiten","gearbeitet"],"Dopo i verbi modali niente zu."],
+["Infinito con zu","Es ist schön, dich ___.",["zu sehen","sehen","gesehen"],"Es ist + aggettivo + zu + infinito."],
+["Infinito con zu","Ich versuche, pünktlich ___.",["zu sein","sein","bin"],"versuchen + zu + infinito."],
+["Perfekt","Wann ___ du geboren?",["bist","hast","wirst"],"geboren sein: Wann bist du geboren?"],
+["Perfekt","Ich habe meine Tasche ___.",["verloren","verliert","geverloren"],"verlieren → verloren (prefisso ver-: niente ge-)."],
+["Perfekt","Der Film hat um acht ___.",["begonnen","gebeginnt","begonnt"],"beginnen → begonnen."],
+["Perfekt","Wir haben uns im Urlaub ___.",["kennengelernt","gekennenlernt","kennenlernen"],"kennenlernen è separabile: kennen-ge-lernt."],
+["Perfekt","Ich bin gestern spät ___.",["eingeschlafen","eingeschlaft","geeinschlafen"],"einschlafen: cambiamento di stato → sein + eingeschlafen."],
+["Perfekt","Hast du das Fenster ___?",["zugemacht","gezumacht","zumachen"],"zumachen → zu-ge-macht."],
+["Ordine","Kannst du mir sagen, wann der Zug ___?",["abfährt","fährt ab","abfahren"],"Nella subordinata il separabile resta unito, in fondo."],
+["Ordine","Ich weiß nicht, wo er ___.",["wohnt","wohnen","gewohnt"],"Domanda indiretta: verbo coniugato in fondo."],
+["Connettori","Er kommt nicht, ___ er krank ist.",["weil","denn","deshalb"],"Verbo in fondo → weil."],
+["Connettori","Ich war müde, ___ bin ich früh ins Bett gegangen.",["deshalb","weil","dass"],"deshalb + verbo subito dopo."],
+["Connettori","___ ich nach Hause komme, koche ich.",["Wenn","Wann","Ob"],"wenn = quando / se; wann solo nelle domande."],
+["Connettori","___ kommst du nach Hause?",["Wann","Wenn","Ob"],"Nelle domande: wann."],
+["Preposizioni","Ich wohne ___ Italien.",["in","nach","zu"],"Stato in un paese: in."],
+["Preposizioni","Ich bin ___ Hause.",["zu","nach","bei"],"zu Hause = a casa (stato); nach Hause = verso casa."],
+["Preposizioni","Ich gehe jetzt ___ Hause.",["nach","zu","in"],"Movimento: nach Hause."],
+["Preposizioni","Das Geschenk ist ___ meiner Oma.",["von","aus","für"],"von + dativo = da parte di; für vorrebbe l'accusativo (meine)."],
+["Preposizioni","Wir treffen uns ___ dem Kino.",["vor","für","durch"],"vor + dativo = davanti a."],
+["Preposizioni","Von Montag ___ Freitag arbeite ich.",["bis","zu","nach"],"von … bis …"],
+["Preposizioni","Ich bin gerade ___ Arzt.",["beim","zum","im"],"Stato presso una persona: bei + dem = beim."],
+["Riflessivi","Ich habe ___ erkältet.",["mich","mir","sich"],"sich erkälten: ich habe mich erkältet."],
+["Riflessivi","Beeil ___!",["dich","dir","sich"],"sich beeilen, imperativo du: Beeil dich!"],
+["Imperativo","___ Sie bitte Platz!",["Nehmen","Nimm","Nehmt"],"Forma Sie: Nehmen Sie Platz!"],
+["Imperativo","___ keine Angst! (du)",["Hab","Hast","Haben"],"haben, imperativo du: Hab!"],
+["Konjunktiv II","Wie ___ es mit Samstag?",["wäre","würde","hätte"],"Wie wäre es mit …? = Che ne dici di …?"],
+["Konjunktiv II","An deiner Stelle ___ ich zum Arzt gehen.",["würde","wäre","hätte"],"Consiglio: An deiner Stelle würde ich …"],
+["Domande","___ alt bist du?",["Wie","Was","Wer"],"Wie alt = quanti anni."],
+["Domande","___ ist das? – Das ist mein Bruder.",["Wer","Wen","Wem"],"Nominativo: wer."],
+["Domande","___ lernst du Deutsch? – Weil ich in Deutschland wohne.",["Warum","Wann","Wie"],"Warum = perché (domanda); risposta con weil."]
+];
+var GTOP=[];GR.forEach(function(g){if(GTOP.indexOf(g[0])<0)GTOP.push(g[0]);});
+
+/* ================== FRASI ================== */
+var SENT=[
+["Oggi vado al cinema.","Heute gehe ich ins Kino",".",["Ich gehe heute ins Kino"]],
+["Mi alzo ogni giorno alle sette.","Ich stehe jeden Tag um sieben Uhr auf",".",["Jeden Tag stehe ich um sieben Uhr auf"]],
+["Ieri ho visto un film.","Ich habe gestern einen Film gesehen",".",["Gestern habe ich einen Film gesehen"]],
+["Imparo il tedesco perché vorrei lavorare in Austria.","Ich lerne Deutsch, weil ich in Österreich arbeiten möchte",".",[]],
+["Puoi aiutarmi, per favore?","Kannst du mir bitte helfen","?",[]],
+["Nel fine settimana siamo andati a Monaco.","Am Wochenende sind wir nach München gefahren",".",["Wir sind am Wochenende nach München gefahren"]],
+["Credo che oggi lui non venga.","Ich glaube, dass er heute nicht kommt",".",[]],
+["Se ho tempo, vado a nuotare.","Wenn ich Zeit habe, gehe ich schwimmen",".",[]],
+["Vorrei prenotare un tavolo per due persone.","Ich möchte einen Tisch für zwei Personen reservieren",".",[]],
+["Mio fratello abita a Berlino da due anni.","Mein Bruder wohnt seit zwei Jahren in Berlin",".",[]],
+["Domani devo alzarmi presto.","Ich muss morgen früh aufstehen",".",["Morgen muss ich früh aufstehen"]],
+["Hai tempo sabato?","Hast du am Samstag Zeit","?",[]],
+["Mi interesso di musica.","Ich interessiere mich für Musik",".",[]],
+["Ieri mi ha telefonato.","Er hat mich gestern angerufen",".",["Gestern hat er mich angerufen"]],
+["Può ripetere, per favore?","Können Sie das bitte wiederholen","?",[]],
+["Sono stanco, perciò vado a letto.","Ich bin müde, deshalb gehe ich ins Bett",".",[]],
+["Il treno arriva alle dieci.","Der Zug kommt um zehn Uhr an",".",["Um zehn Uhr kommt der Zug an"]],
+["Dov'è la farmacia più vicina?","Wo ist die nächste Apotheke","?",[]],
+["Non so se lei viene domani.","Ich weiß nicht, ob sie morgen kommt",".",[]],
+["Dammi il libro, per favore.","Gib mir bitte das Buch",".",["Gib mir das Buch bitte","Bitte gib mir das Buch"]],
+["Non vedo l'ora che arrivi il fine settimana.","Ich freue mich auf das Wochenende",".",[]],
+["In estate vogliamo andare in Italia.","Wir wollen im Sommer nach Italien fahren",".",["Im Sommer wollen wir nach Italien fahren"]],
+["Oggi non ho voglia di cucinare.","Ich habe heute keine Lust zu kochen",".",["Heute habe ich keine Lust zu kochen"]],
+["Che cosa hai fatto ieri?","Was hast du gestern gemacht","?",[]],
+["Dopo il lavoro devo fare la spesa.","Ich muss nach der Arbeit einkaufen",".",["Nach der Arbeit muss ich einkaufen"]],
+["Lei è più alta di suo fratello.","Sie ist größer als ihr Bruder",".",[]],
+["Possiamo incontrarci alle otto?","Können wir uns um acht Uhr treffen","?",[]],
+["Ho dimenticato la chiave a casa.","Ich habe den Schlüssel zu Hause vergessen",".",[]],
+["Questo vestito mi piace molto.","Das Kleid gefällt mir sehr gut",".",[]],
+["Ieri ero malato e sono rimasto a casa.","Gestern war ich krank und bin zu Hause geblieben",".",[]],
+["Vado dal medico perché ho la febbre.","Ich gehe zum Arzt, weil ich Fieber habe",".",[]],
+["Mi può dire dov'è la stazione?","Können Sie mir sagen, wo der Bahnhof ist","?",[]],
+["Ho dimenticato di comprare il pane.","Ich habe vergessen, Brot zu kaufen",".",[]],
+["Mi piacerebbe viaggiare di più.","Ich würde gern mehr reisen",".",[]],
+["Da quanto tempo impari il tedesco?","Wie lange lernst du schon Deutsch","?",[]],
+["Abito in Germania da un mese.","Ich wohne seit einem Monat in Deutschland",".",[]],
+["Lo scorso fine settimana sono rimasto a casa.","Letztes Wochenende bin ich zu Hause geblieben",".",["Ich bin letztes Wochenende zu Hause geblieben"]],
+["Dovresti andare dal medico.","Du solltest zum Arzt gehen",".",[]],
+["A che ora parte il treno per Berlino?","Um wie viel Uhr fährt der Zug nach Berlin ab","?",[]],
+["Non sono potuto venire perché ero malato.","Ich konnte nicht kommen, weil ich krank war",".",[]],
+["Mi dia un chilo di mele, per favore.","Geben Sie mir bitte ein Kilo Äpfel",".",["Geben Sie mir ein Kilo Äpfel bitte","Bitte geben Sie mir ein Kilo Äpfel"]],
+["Ti chiamo quando arrivo.","Ich rufe dich an, wenn ich ankomme",".",[]],
+["La mia ragazza parla tedesco meglio di me.","Meine Freundin spricht besser Deutsch als ich",".",[]],
+["Il sabato faccio sempre la spesa.","Am Samstag kaufe ich immer ein",".",["Ich kaufe am Samstag immer ein","Ich kaufe immer am Samstag ein"]],
+["Hai voglia di bere un caffè?","Hast du Lust, einen Kaffee zu trinken","?",[]],
+["Ieri sera siamo andati al ristorante.","Gestern Abend sind wir ins Restaurant gegangen",".",["Wir sind gestern Abend ins Restaurant gegangen"]]
+];
+
+/* ================== LESEN ================== */
+var LESEN=[
+{t:"E-Mail",x:"Liebe Anna,<br>vielen Dank für deine Einladung zum Geburtstag am Samstag. Leider kann ich nicht um 18 Uhr kommen, weil ich bis 19 Uhr arbeiten muss. Ich komme also etwas später, gegen halb acht. Soll ich etwas mitbringen? Ich kann einen Kuchen backen.<br>Liebe Grüße<br>Markus",
+ q:[["Markus kommt nicht zur Party.",["Falsch","Richtig"],"Viene, ma più tardi: «Ich komme etwas später»."],["Warum kommt Markus später?",["Er muss arbeiten.","Sein Zug hat Verspätung.","Er ist krank."],"«…weil ich bis 19 Uhr arbeiten muss»."],["Was möchte Markus mitbringen?",["Einen Kuchen","Getränke","Ein Spiel"],"«Ich kann einen Kuchen backen»."]]},
+{t:"Anzeige",x:"<b>Wohnung zu vermieten</b>2 Zimmer, Küche, Bad, Balkon, 55 m², im 3. Stock (kein Aufzug). Zentrale Lage, 5 Minuten zu Fuß zum Bahnhof. Miete: 620 Euro plus Nebenkosten. Haustiere sind nicht erlaubt. Frei ab 1. März. Besichtigung nur am Wochenende. Tel. 0170 555 01 23 (Frau Becker, ab 17 Uhr).",
+ q:[["Im Haus gibt es einen Aufzug.",["Falsch","Richtig"],"«kein Aufzug»."],["Wann kann man die Wohnung ansehen?",["Am Wochenende","Jeden Tag ab 17 Uhr","Am 1. März"],"«Besichtigung nur am Wochenende»; alle 17 si può solo telefonare."],["Man darf in der Wohnung einen Hund haben.",["Falsch","Richtig"],"«Haustiere sind nicht erlaubt»."]]},
+{t:"Information",x:"<b>Stadtbibliothek – neue Öffnungszeiten</b>Montag geschlossen. Dienstag bis Freitag 10–18 Uhr, Samstag 9–13 Uhr. Die Anmeldung kostet 15 Euro pro Jahr, für Schüler und Studenten ist sie kostenlos. Bücher kann man vier Wochen ausleihen, DVDs nur eine Woche.",
+ q:[["Am Montag ist die Bibliothek …",["geschlossen.","bis 18 Uhr geöffnet.","bis 13 Uhr geöffnet."],"«Montag geschlossen»."],["Was bezahlen Studenten für die Anmeldung?",["Nichts","15 Euro","Die Hälfte"],"«für Schüler und Studenten kostenlos»."],["Wie lange kann man DVDs ausleihen?",["Eine Woche","Vier Wochen","Einen Tag"],"«DVDs nur eine Woche»."]]},
+{t:"Blog",x:"Ich heiße Sofia und wohne seit einem Jahr in Hamburg. Am Anfang war es schwer, weil ich niemanden kannte und nur wenig Deutsch gesprochen habe. Dann habe ich einen Sprachkurs gemacht und im Sportverein Volleyball gespielt. Dort habe ich viele Freunde gefunden. Jetzt gefällt mir die Stadt sehr gut – nur das Wetter ist nicht so schön wie in Italien!",
+ q:[["Wie lange wohnt Sofia schon in Hamburg?",["Seit einem Jahr","Seit zwei Jahren","Seit einem Monat"],"«seit einem Jahr»."],["Wo hat Sofia Freunde gefunden?",["Im Sportverein","Im Büro","Im Internet"],"«im Sportverein … Dort habe ich viele Freunde gefunden»."],["Sofia findet das Wetter in Hamburg besser als in Italien.",["Falsch","Richtig"],"«nicht so schön wie in Italien»."]]},
+{t:"Nachricht",x:"Sehr geehrter Herr Rossi,<br>Ihr Termin bei Dr. Klein am Mittwoch, 12. Mai, um 9:30 Uhr muss leider ausfallen, weil der Arzt krank ist. Wir können Ihnen einen neuen Termin am Freitag um 11 Uhr oder am Montag um 8 Uhr anbieten. Bitte rufen Sie uns an oder schreiben Sie eine E-Mail. Bringen Sie bitte Ihre Versichertenkarte mit.<br>Praxis Dr. Klein",
+ q:[["Der Termin am Mittwoch findet statt.",["Falsch","Richtig"],"«muss leider ausfallen» = è annullato."],["Warum gibt es ein Problem?",["Der Arzt ist krank.","Die Praxis macht Urlaub.","Herr Rossi hat abgesagt."],"«weil der Arzt krank ist»."],["Was soll Herr Rossi mitbringen?",["Die Versichertenkarte","Geld","Ein Formular"],"«Bringen Sie bitte Ihre Versichertenkarte mit»."]]},
+{t:"Programm",x:"<b>Sommerfest im Stadtpark</b>Am Samstag, 21. Juni, ab 14 Uhr. Für Kinder gibt es Spiele und ein Theater, für Erwachsene Live-Musik ab 19 Uhr. Essen und Getränke kann man dort kaufen. Der Eintritt ist frei. Bei Regen findet das Fest in der Sporthalle statt.",
+ q:[["Was kostet der Eintritt?",["Nichts","14 Euro","5 Euro"],"«Der Eintritt ist frei»."],["Wann beginnt die Musik?",["Um 19 Uhr","Um 14 Uhr","Um 21 Uhr"],"«Live-Musik ab 19 Uhr»."],["Bei Regen gibt es kein Fest.",["Falsch","Richtig"],"Con la pioggia si fa nella Sporthalle."]]},
+{t:"Zettel im Haus",x:"Liebe Nachbarn,<br>am Donnerstag, 5. Oktober, wird im ganzen Haus das Wasser von 8 bis 12 Uhr abgestellt, weil die Leitungen repariert werden. Bitte benutzen Sie in dieser Zeit keine Waschmaschine. Bei Fragen rufen Sie bitte den Hausmeister, Herrn Lang, an.<br>Ihre Hausverwaltung",
+ q:[["Am Donnerstagvormittag gibt es kein Wasser.",["Richtig","Falsch"],"Dalle 8 alle 12 l'acqua è chiusa."],["Was soll man nicht benutzen?",["Die Waschmaschine","Den Aufzug","Das Telefon"],"«keine Waschmaschine»."],["Wen kann man fragen?",["Den Hausmeister","Die Nachbarn","Die Polizei"],"«rufen Sie bitte den Hausmeister an»."]]},
+{t:"Anzeige",x:"<b>Kellner/in gesucht</b>Café am Markt sucht ab sofort eine freundliche Aushilfe für das Wochenende (Samstag und Sonntag, 9–15 Uhr). Erfahrung ist nicht nötig, aber Sie sollten gut Deutsch sprechen. Wir bieten 13 Euro pro Stunde plus Trinkgeld. Kommen Sie einfach vorbei und fragen Sie nach Frau Sommer.",
+ q:[["An welchen Tagen arbeitet man?",["Am Wochenende","Von Montag bis Freitag","Jeden Tag"],"«für das Wochenende»."],["Man braucht Erfahrung als Kellner.",["Falsch","Richtig"],"«Erfahrung ist nicht nötig»."],["Wie kann man sich bewerben?",["Persönlich im Café","Per E-Mail","Per Telefon"],"«Kommen Sie einfach vorbei»."]]},
+{t:"Nachricht",x:"Hi Jana!<br>Ich bin jetzt in Wien angekommen. Die Fahrt hat sieben Stunden gedauert, weil der Zug Verspätung hatte. Das Hotel ist klein, aber sehr sauber und liegt direkt im Zentrum. Morgen besuche ich das Museum und am Abend gehe ich in die Oper. Am Sonntag fahre ich zurück.<br>Bis bald! Luca",
+ q:[["Warum hat die Fahrt so lange gedauert?",["Der Zug hatte Verspätung.","Luca hat den Zug verpasst.","Es gab viel Verkehr."],"«weil der Zug Verspätung hatte»."],["Wo liegt das Hotel?",["Im Zentrum","Am Bahnhof","Außerhalb der Stadt"],"«direkt im Zentrum»."],["Was macht Luca morgen Abend?",["Er geht in die Oper.","Er besucht das Museum.","Er fährt zurück."],"«am Abend gehe ich in die Oper»."]]},
+{t:"Information",x:"<b>Hallenbad Nord</b>Geöffnet täglich von 8 bis 21 Uhr, am Dienstag nur bis 17 Uhr. Erwachsene zahlen 5 Euro, Kinder bis 12 Jahre 2,50 Euro. Kinder unter 6 Jahren dürfen nur mit einem Erwachsenen ins Wasser. Schwimmkurse für Anfänger: jeden Mittwoch um 16 Uhr. Anmeldung an der Kasse.",
+ q:[["Wann schließt das Bad am Dienstag?",["Um 17 Uhr","Um 21 Uhr","Um 16 Uhr"],"«am Dienstag nur bis 17 Uhr»."],["Was bezahlt ein Kind von 10 Jahren?",["2,50 Euro","5 Euro","Nichts"],"«Kinder bis 12 Jahre 2,50 Euro»."],["Wo meldet man sich für den Schwimmkurs an?",["An der Kasse","Im Internet","Am Telefon"],"«Anmeldung an der Kasse»."]]},
+{t:"E-Mail in der Firma",x:"Liebe Kolleginnen und Kollegen,<br>am Freitag, 8. Dezember, feiern wir ab 16 Uhr unsere Weihnachtsfeier in der Kantine. Die Firma bezahlt die Getränke, aber jeder soll bitte etwas zu essen mitbringen. Wer kommen möchte, schreibt bis Mittwoch eine E-Mail an Frau Vogel.<br>Viele Grüße<br>Ihre Personalabteilung",
+ q:[["Wo findet die Feier statt?",["In der Kantine","Im Restaurant","Im Büro von Frau Vogel"],"«in der Kantine»."],["Die Firma bezahlt das Essen.",["Falsch","Richtig"],"La ditta paga solo le bevande; il cibo lo portano i colleghi."],["Bis wann muss man sich anmelden?",["Bis Mittwoch","Bis Freitag","Bis Montag"],"«schreibt bis Mittwoch eine E-Mail»."]]},
+{t:"Anzeige",x:"<b>Tandempartner gesucht!</b>Ich heiße Pedro, komme aus Spanien und lerne seit sechs Monaten Deutsch. Ich möchte mein Deutsch verbessern und kann dir Spanisch beibringen. Ich habe abends nach 18 Uhr und am Wochenende Zeit. Wir können uns in einem Café treffen oder online sprechen. Schreib mir!",
+ q:[["Was sucht Pedro?",["Einen Partner zum Sprachenlernen","Eine Wohnung","Eine Arbeit"],"Tandempartner = compagno per lo scambio linguistico."],["Wann hat Pedro Zeit?",["Abends und am Wochenende","Nur am Vormittag","Nur am Wochenende"],"«abends nach 18 Uhr und am Wochenende»."],["Pedro möchte sich nur online treffen.",["Falsch","Richtig"],"«in einem Café treffen oder online sprechen»."]]}
+];
+
+/* ================== HÖREN ================== */
+var HOEREN=[
+{x:"Achtung auf Gleis drei! Der Intercity nach München, Abfahrt vierzehn Uhr zwanzig, hat heute circa fünfzehn Minuten Verspätung. Wir bitten um Entschuldigung.",
+ q:[["Wohin fährt der Zug?",["Nach München","Nach Berlin","Nach Hamburg"]],["Wie viel Verspätung hat der Zug?",["15 Minuten","20 Minuten","50 Minuten"]]]},
+{x:"Hallo Paul, hier ist Lena. Ich kann heute Abend leider nicht ins Kino kommen, ich muss länger arbeiten. Hast du morgen Zeit? Der Film läuft auch morgen um zwanzig Uhr. Ruf mich bitte zurück!",
+ q:[["Warum kann Lena heute nicht kommen?",["Sie muss arbeiten.","Sie ist krank.","Sie hat kein Geld."]],["Was soll Paul machen?",["Lena zurückrufen","Karten kaufen","Eine E-Mail schreiben"]]]},
+{x:"Liebe Kunden, heute im Angebot: ein Kilo Äpfel für nur einen Euro neunundneunzig und frisches Brot für zwei Euro fünfzig. Unser Supermarkt schließt heute um zwanzig Uhr.",
+ q:[["Was kostet ein Kilo Äpfel?",["1,99 €","2,50 €","1,90 €"]],["Wann schließt der Supermarkt?",["Um 20 Uhr","Um 22 Uhr","Um 18 Uhr"]]]},
+{x:"Und jetzt das Wetter für morgen: Im Norden regnet es den ganzen Tag bei zwölf Grad. Im Süden scheint die Sonne, die Temperaturen steigen auf vierundzwanzig Grad.",
+ q:[["Wie ist das Wetter im Norden?",["Es regnet.","Die Sonne scheint.","Es schneit."]],["Wie warm wird es im Süden?",["24 Grad","12 Grad","14 Grad"]]]},
+{x:"Praxis Doktor Weber, guten Tag. Unsere Praxis ist vom ersten bis zum fünfzehnten August geschlossen. In dringenden Fällen rufen Sie bitte Doktor Lang an, Telefon vier fünf, sechs sieben, acht neun.",
+ q:[["Bis wann ist die Praxis geschlossen?",["Bis zum 15. August","Bis zum 1. August","Bis zum 5. August"]],["Was macht man in dringenden Fällen?",["Dr. Lang anrufen","Ins Krankenhaus gehen","Eine E-Mail schreiben"]]]},
+{x:"Guten Tag, ich möchte einen Tisch reservieren. – Gern. Für wann? – Für Freitagabend um halb acht, für vier Personen. – Kein Problem. Auf welchen Namen? – Auf den Namen Bianchi.",
+ q:[["Für wann ist die Reservierung?",["Freitag, 19:30 Uhr","Freitag, 20:30 Uhr","Samstag, 19:30 Uhr"]],["Für wie viele Personen?",["Vier","Zwei","Acht"]]]},
+{x:"Sehr geehrte Fahrgäste, wegen Bauarbeiten fährt die U-Bahn-Linie zwei heute nicht zwischen Hauptbahnhof und Rathaus. Bitte benutzen Sie den Bus Nummer vierzig.",
+ q:[["Warum fährt die U-Bahn nicht?",["Wegen Bauarbeiten","Wegen eines Unfalls","Wegen des Wetters"]],["Was soll man nehmen?",["Den Bus 40","Den Bus 14","Ein Taxi"]]]},
+{x:"Hi Marco, hier ist Tom. Meine Party ist am Samstag um neunzehn Uhr bei mir zu Hause, Gartenstraße acht. Bring bitte etwas zu trinken mit. Bis dann!",
+ q:[["Wo ist die Party?",["Bei Tom zu Hause","Im Restaurant","Im Park"]],["Was soll Marco mitbringen?",["Getränke","Einen Kuchen","Musik"]]]},
+{x:"Entschuldigung, wie komme ich zur Post? – Gehen Sie hier geradeaus bis zur Ampel, dann nach links. Die Post ist neben der Apotheke. – Ist es weit? – Nein, nur fünf Minuten zu Fuß.",
+ q:[["Wo ist die Post?",["Neben der Apotheke","Neben dem Bahnhof","Hinter der Kirche"]],["Wie lange braucht man zu Fuß?",["Fünf Minuten","Fünfzehn Minuten","Eine halbe Stunde"]]]},
+{x:"Guten Tag, hier ist die Sprachschule Lingua. Ihr Deutschkurs beginnt nicht am Montag, sondern erst am Mittwoch um achtzehn Uhr. Der Kurs findet in Raum zwölf im zweiten Stock statt.",
+ q:[["Wann beginnt der Kurs?",["Am Mittwoch","Am Montag","Am Freitag"]],["Wo findet der Kurs statt?",["In Raum 12","In Raum 2","In Raum 20"]]]},
+{x:"Liebe Fluggäste, der Flug nach Rom startet heute nicht von Gate B zwölf, sondern von Gate A fünf. Das Boarding beginnt in zwanzig Minuten.",
+ q:[["Wohin geht der Flug?",["Nach Rom","Nach Wien","Nach Paris"]],["Von welchem Gate startet der Flug?",["A 5","B 12","A 12"]]]},
+{x:"Guten Tag, hier ist die Autowerkstatt Müller. Ihr Auto ist fertig. Sie können es heute bis achtzehn Uhr oder morgen ab acht Uhr abholen. Die Reparatur kostet zweihundertdreißig Euro.",
+ q:[["Was kostet die Reparatur?",["230 Euro","320 Euro","213 Euro"]],["Bis wann kann man das Auto heute abholen?",["Bis 18 Uhr","Bis 8 Uhr","Bis 20 Uhr"]]]},
+{x:"Hallo Schatz, ich bin noch im Büro. Kannst du bitte einkaufen gehen? Wir brauchen Milch, Eier und Brot. Ich bin um sieben zu Hause, dann kochen wir zusammen.",
+ q:[["Was soll die Person machen?",["Einkaufen gehen","Allein kochen","Ins Büro kommen"]],["Was steht NICHT auf der Liste?",["Käse","Milch","Brot"]]]},
+{x:"Achtung, eine Durchsage: Der kleine Leon, fünf Jahre alt, sucht seine Eltern. Er wartet an der Information im Erdgeschoss.",
+ q:[["Wie alt ist Leon?",["Fünf Jahre","Vier Jahre","Fünfzehn Jahre"]],["Wo wartet Leon?",["An der Information","An der Kasse","Am Ausgang"]]]},
+{x:"Willkommen im Kino Astra. Heute zeigen wir um siebzehn Uhr einen Kinderfilm und um zwanzig Uhr dreißig eine Komödie. Am Montag kosten alle Karten nur sechs Euro.",
+ q:[["Wann beginnt die Komödie?",["Um 20:30 Uhr","Um 17:00 Uhr","Um 20:00 Uhr"]],["Was kosten die Karten am Montag?",["6 Euro","16 Euro","7 Euro"]]]}
+];
+
+/* ================== SCHREIBEN ================== */
+var SCHR=[
+{k:"SMS",w:"20–30 parole",t:"Sei in ritardo all'appuntamento al ristorante con la tua amica Lea.",p:["Scusati","Spiega perché sei in ritardo","Dì quando arrivi"],
+ m:"Hallo Lea,<br>entschuldige bitte, ich komme zu spät. Mein Zug hat Verspätung. Ich bin in zwanzig Minuten im Restaurant. Bestell schon etwas zu trinken!<br>Bis gleich<br>Ale"},
+{k:"E-Mail formale",w:"30–40 parole",t:"Il tuo capo, Herr Meyer, ti invita alla sua festa di compleanno. Rispondi dando del Sie.",p:["Ringrazia per l'invito","Dì che vieni volentieri","Chiedi se puoi portare la tua ragazza e che cosa portare"],
+ m:"Sehr geehrter Herr Meyer,<br>vielen Dank für die Einladung. Ich komme sehr gern zu Ihrer Feier. Darf ich meine Freundin mitbringen? Soll ich etwas zu essen oder zu trinken mitbringen?<br>Mit freundlichen Grüßen<br>Alessandro Bianchi"},
+{k:"SMS",w:"20–30 parole",t:"Domani non puoi andare al corso di tedesco. Scrivi al tuo compagno Jonas.",p:["Spiega perché non vieni","Chiedi i compiti","Proponi di vedervi un altro giorno"],
+ m:"Hallo Jonas,<br>ich kann morgen nicht zum Deutschkurs kommen, weil ich krank bin. Kannst du mir bitte die Hausaufgaben schicken? Treffen wir uns am Freitag?<br>Danke und bis bald<br>Ale"},
+{k:"E-Mail formale",w:"30–40 parole",t:"Vuoi iscriverti a un corso di tedesco. Scrivi alla scuola di lingue.",p:["Dì che corso ti interessa","Chiedi quando inizia e in che giorni","Chiedi il prezzo"],
+ m:"Sehr geehrte Damen und Herren,<br>ich möchte einen Deutschkurs für das Niveau B1 besuchen. Wann beginnt der nächste Kurs und an welchen Tagen findet er statt? Wie viel kostet der Kurs?<br>Vielen Dank für Ihre Antwort.<br>Mit freundlichen Grüßen<br>Alessandro Bianchi"},
+{k:"SMS",w:"20–30 parole",t:"Il tuo amico Tim ti invita a cena sabato, ma non puoi.",p:["Ringrazia","Spiega perché non puoi","Proponi un'altra data"],
+ m:"Hi Tim,<br>danke für die Einladung! Leider kann ich am Samstag nicht kommen, weil meine Eltern mich besuchen. Hast du am Sonntagabend Zeit?<br>Liebe Grüße<br>Ale"},
+{k:"E-Mail formale",w:"30–40 parole",t:"Nel tuo appartamento il riscaldamento non funziona. Scrivi alla padrona di casa, Frau Becker.",p:["Descrivi il problema e da quando c'è","Chiedi un tecnico","Dì quando sei a casa"],
+ m:"Sehr geehrte Frau Becker,<br>seit Montag funktioniert die Heizung in meiner Wohnung nicht und es ist sehr kalt. Können Sie bitte einen Techniker schicken? Ich bin jeden Tag ab 17 Uhr zu Hause.<br>Mit freundlichen Grüßen<br>Alessandro Bianchi"},
+{k:"SMS",w:"20–30 parole",t:"Vuoi andare a fare un'escursione domenica. Scrivi alla tua amica Mia.",p:["Proponi la gita","Dì dove e a che ora vi trovate","Chiedi che cosa porta lei"],
+ m:"Hallo Mia,<br>hast du am Sonntag Lust auf eine Wanderung? Wir treffen uns um neun Uhr am Bahnhof. Ich bringe Brötchen mit. Was bringst du mit?<br>Bis Sonntag<br>Ale"},
+{k:"E-Mail formale",w:"30–40 parole",t:"Hai un appuntamento dal dentista (Dr. Braun) lunedì, ma devi lavorare.",p:["Disdici l'appuntamento e scusati","Spiega il motivo","Chiedi un nuovo appuntamento"],
+ m:"Sehr geehrter Herr Dr. Braun,<br>leider kann ich am Montag um 10 Uhr nicht zu meinem Termin kommen, weil ich arbeiten muss. Das tut mir leid. Haben Sie nächste Woche am Nachmittag einen freien Termin?<br>Mit freundlichen Grüßen<br>Alessandro Bianchi"}
+];
+
+/* ================== SPRECHEN ================== */
+var SPR=[
+{n:"Teil 1 · Domande",d:"Ricevi una carta con una parola chiave: fai una domanda al compagno, poi rispondi alla sua. Prova a dirla ad alta voce prima di guardare il modello.",c:[
+ ["Geburtstag?","Fai una domanda con questa parola","Wann hast du Geburtstag?","Ich habe am dritten Mai Geburtstag."],
+ ["Wohnort?","","Wo wohnst du?","Ich wohne in einer kleinen Stadt in Norditalien."],
+ ["Beruf?","","Was bist du von Beruf?","Ich bin Lehrer. Ich arbeite an einer Schule."],
+ ["Hobby?","","Was machst du in deiner Freizeit?","In meiner Freizeit mache ich gern Sport."],
+ ["Sprachen?","","Welche Sprachen sprichst du?","Ich spreche Italienisch, Englisch und ein bisschen Deutsch."],
+ ["Familie?","","Hast du Geschwister?","Ja, ich habe einen Bruder. Er ist älter als ich."],
+ ["Lieblingsessen?","","Was isst du am liebsten?","Am liebsten esse ich Pizza."],
+ ["Wochenende?","","Was machst du am Wochenende?","Am Wochenende gehe ich oft in die Berge."],
+ ["Urlaub?","","Wohin fährst du gern in den Urlaub?","Ich fahre gern ans Meer."],
+ ["Haustier?","","Hast du ein Haustier?","Nein, ich habe kein Haustier, aber ich mag Hunde."],
+ ["Frühstück?","","Was isst du zum Frühstück?","Zum Frühstück trinke ich Kaffee und esse Brot mit Marmelade."],
+ ["Deutsch?","","Warum lernst du Deutsch?","Ich lerne Deutsch, weil ich die Sprache schön finde."]]},
+{n:"Teil 2 · Parla di te",d:"Parli da solo per circa un minuto su un tema, seguendo quattro spunti. Poi l'esaminatore fa una o due domande.",c:[
+ ["Was machen Sie am Wochenende?","Spunti: Wann? · Mit wem? · Wo? · Was am liebsten?","Am Samstag schlafe ich lange und frühstücke mit meiner Freundin. Am Nachmittag mache ich Sport oder gehe in die Berge. Am Abend treffen wir oft Freunde oder kochen zusammen. Am Sonntag lerne ich Deutsch, und am liebsten lese ich ein Buch.",""],
+ ["Wie wohnen Sie?","Spunti: Wo? · Wie groß? · Mit wem? · Was gefällt Ihnen?","Ich wohne in einem Haus in einem kleinen Dorf in Norditalien. Das Haus hat vier Zimmer und einen Garten. Ich wohne dort mit meiner Familie. Mir gefällt die Ruhe, aber die Stadt ist ein bisschen weit.",""],
+ ["Was essen Sie gern?","Spunti: Frühstück? · Kochen? · Restaurant? · Lieblingsessen?","Zum Frühstück esse ich nicht viel, nur Brot und Kaffee. Mittags esse ich oft Pasta. Ich koche gern, besonders am Wochenende. Manchmal gehe ich mit Freunden ins Restaurant. Mein Lieblingsessen ist Pizza.",""],
+ ["Wie lernen Sie Deutsch?","Spunti: Seit wann? · Wo? · Wie oft? · Was ist schwer?","Ich lerne seit einem Jahr Deutsch. Ich lerne zu Hause mit einer App und mit Büchern. Ich übe jeden Tag eine halbe Stunde. Die Grammatik finde ich schwer, besonders die Artikel, aber das Sprechen macht mir Spaß.",""],
+ ["Was machen Sie mit Ihrem Geld?","Spunti: Wohnung? · Essen? · Freizeit? · Sparen?","Ich brauche viel Geld für die Miete und das Essen. In meiner Freizeit gebe ich Geld für Sport und Reisen aus. Kleidung kaufe ich nicht oft. Jeden Monat spare ich ein bisschen für den Urlaub.",""],
+ ["Wie ist Ihr Tag?","Spunti: Aufstehen? · Arbeit? · Mittag? · Abend?","Ich stehe um sieben Uhr auf und frühstücke. Dann fahre ich mit dem Auto zur Arbeit. Mittags esse ich mit Kollegen. Am Abend mache ich Sport, koche und sehe einen Film. Ich gehe gegen elf Uhr ins Bett.",""]]},
+{n:"Teil 3 · Organizzare insieme",d:"Tu e il compagno avete due agende diverse e dovete trovare un momento libero per fare qualcosa insieme. Servono frasi per proporre, rifiutare e accettare.",c:[
+ ["Proponi: andare al cinema sabato","","Wollen wir am Samstag ins Kino gehen?",""],
+ ["Chiedi: hai tempo alle 10?","","Hast du am Samstag um zehn Uhr Zeit?",""],
+ ["Rifiuta: a quell'ora devi lavorare","","Da kann ich leider nicht, ich muss arbeiten.",""],
+ ["Proponi un'alternativa: il pomeriggio","","Geht es am Nachmittag? Zum Beispiel um drei Uhr?",""],
+ ["Accetta","","Ja, das passt gut. Einverstanden!",""],
+ ["Proponi: potremmo comprare un regalo","","Wir könnten zusammen ein Geschenk kaufen.",""],
+ ["Chiedi l'opinione","","Was meinst du? Was denkst du?",""],
+ ["Non sei d'accordo, hai un'altra idea","","Das finde ich nicht so gut. Ich habe eine andere Idee.",""],
+ ["Chiedi: dove ci troviamo?","","Wo treffen wir uns?",""],
+ ["Chiudi l'accordo","","Gut, dann treffen wir uns am Samstag um drei Uhr vor dem Kino. Bis dann!",""],
+ ["Non hai capito, chiedi di ripetere","","Entschuldigung, können Sie das bitte wiederholen?",""]]}
+];
+
+/* ================== SCHEDE ================== */
+var SCHEDE=[
+["Articoli e casi","<div class='tw'><table><tr><th></th><th>m.</th><th>n.</th><th>f.</th><th>pl.</th></tr><tr><th>Nom.</th><td>der / ein</td><td>das / ein</td><td>die / eine</td><td>die / –</td></tr><tr><th>Akk.</th><td><b>den / einen</b></td><td>das / ein</td><td>die / eine</td><td>die / –</td></tr><tr><th>Dat.</th><td>dem / einem</td><td>dem / einem</td><td>der / einer</td><td>den / – (+n)</td></tr></table></div><p>All'accusativo cambia solo il maschile. kein, mein, dein… seguono <i>ein</i>.</p>"],
+["Pronomi personali","<div class='tw'><table><tr><th>Nom.</th><td>ich</td><td>du</td><td>er</td><td>sie</td><td>es</td><td>wir</td><td>ihr</td><td>sie/Sie</td></tr><tr><th>Akk.</th><td>mich</td><td>dich</td><td>ihn</td><td>sie</td><td>es</td><td>uns</td><td>euch</td><td>sie/Sie</td></tr><tr><th>Dat.</th><td>mir</td><td>dir</td><td>ihm</td><td>ihr</td><td>ihm</td><td>uns</td><td>euch</td><td>ihnen/Ihnen</td></tr></table></div><p>Possessivi: mein, dein, sein (lui), ihr (lei), unser, euer, ihr (loro), Ihr (Lei).</p>"],
+["Preposizioni","<p><b>Sempre accusativo:</b> für, ohne, durch, gegen, um, bis</p><p><b>Sempre dativo:</b> aus, bei, mit, nach, seit, von, zu</p><p><b>Wechselpräpositionen</b> (Wo? → dativo · Wohin? → accusativo): in, an, auf, über, unter, vor, hinter, neben, zwischen</p><p>Contrazioni: im, am, zum, zur, vom, beim, ins, ans</p><p><b>Tempo:</b> um 8 Uhr · am Montag / am Abend · im Mai / im Sommer · seit einem Jahr · vor zwei Tagen</p>"],
+["Ordine delle parole","<p><b>Frase principale:</b> verbo coniugato in 2ª posizione.<br>Heute <b>gehe</b> ich ins Kino.</p><p><b>Modale / Perfekt / separabile:</b> la seconda parte va in fondo.<br>Ich <b>muss</b> morgen früh <b>aufstehen</b>. · Ich <b>habe</b> Pizza <b>gegessen</b>. · Ich <b>stehe</b> um 7 <b>auf</b>.</p><p><b>Subordinata</b> (weil, dass, wenn, ob): verbo coniugato in fondo.<br>…, weil ich müde <b>bin</b>.</p><p><b>Posizione 0</b> (non spostano il verbo): und, aber, oder, denn.<br><b>Posizione 1</b> (poi subito il verbo): deshalb, dann, danach.</p><p><b>Domanda sì/no:</b> verbo al primo posto. <b>Kommst</b> du mit?</p>"],
+["Perfekt","<p><b>haben / sein + participio</b> in fondo.</p><p><b>Regolari:</b> ge- + radice + -t (gemacht, gekauft, gearbeitet)<br><b>Irregolari:</b> ge- + … + -en (gegessen, gesehen, geschrieben)<br><b>Separabili:</b> ein-ge-kauft, an-ge-rufen, auf-ge-standen<br><b>Senza ge-:</b> be-, ver-, er-, ent- e -ieren (besucht, verstanden, studiert)</p><p><b>Con sein:</b> movimento o cambiamento di stato: gehen, kommen, fahren, fliegen, laufen, aufstehen, ankommen, umziehen, werden + <i>sein, bleiben, passieren</i>.</p><p>Per sein, haben e i modali si usa di solito il <b>Präteritum</b>: ich war, ich hatte, ich konnte, ich musste, ich wollte.</p>"],
+["Verbi modali","<div class='tw'><table><tr><th></th><th>können</th><th>müssen</th><th>wollen</th><th>dürfen</th><th>sollen</th><th>möchten</th></tr><tr><th>ich</th><td>kann</td><td>muss</td><td>will</td><td>darf</td><td>soll</td><td>möchte</td></tr><tr><th>du</th><td>kannst</td><td>musst</td><td>willst</td><td>darfst</td><td>sollst</td><td>möchtest</td></tr><tr><th>er/sie</th><td>kann</td><td>muss</td><td>will</td><td>darf</td><td>soll</td><td>möchte</td></tr><tr><th>wir</th><td>können</td><td>müssen</td><td>wollen</td><td>dürfen</td><td>sollen</td><td>möchten</td></tr><tr><th>ihr</th><td>könnt</td><td>müsst</td><td>wollt</td><td>dürft</td><td>sollt</td><td>möchtet</td></tr></table></div><p>nicht dürfen = essere vietato · nicht müssen = non essere necessario.</p>"],
+["Desinenze degli aggettivi","<div class='tw'><table><tr><th></th><th>m.</th><th>n.</th><th>f.</th><th>pl.</th></tr><tr><th>Nom. (der)</th><td>der gut<b>e</b></td><td>das gut<b>e</b></td><td>die gut<b>e</b></td><td>die gut<b>en</b></td></tr><tr><th>Nom. (ein)</th><td>ein gut<b>er</b></td><td>ein gut<b>es</b></td><td>eine gut<b>e</b></td><td>gut<b>e</b></td></tr><tr><th>Akk.</th><td>den / einen gut<b>en</b></td><td>come nom.</td><td>come nom.</td><td>come nom.</td></tr><tr><th>Dat.</th><td colspan='4'>sempre -<b>en</b> (mit dem / einem guten …)</td></tr></table></div><p>Regola pratica: se l'articolo non mostra il genere (ein), lo mostra l'aggettivo (-er, -es).</p>"],
+["Comparativo e superlativo","<p>klein → klein<b>er</b> → am klein<b>sten</b><br>Spesso con Umlaut: alt → älter, groß → größer, jung → jünger, warm → wärmer, kalt → kälter</p><p><b>Irregolari:</b> gut → besser → am besten · viel → mehr → am meisten · gern → lieber → am liebsten · hoch → höher → am höchsten</p><p>größer <b>als</b> … · so groß <b>wie</b> …</p>"],
+["Riflessivi e verbi con preposizione","<p>ich … <b>mich</b> · du … <b>dich</b> · er/sie/es … <b>sich</b> · wir … <b>uns</b> · ihr … <b>euch</b> · sie/Sie … <b>sich</b></p><p>sich freuen <b>auf</b> (+Akk., futuro) / <b>über</b> (+Akk., già successo) · sich interessieren <b>für</b> · warten <b>auf</b> · denken <b>an</b> · sprechen <b>über</b> / <b>mit</b> · sich treffen <b>mit</b> · Angst haben <b>vor</b> (+Dat.) · träumen <b>von</b></p>"],
+["Imperativo e cortesia","<p><b>du:</b> Komm! Nimm! Hilf! Fahr! Sei ruhig! Ruf mich an!<br><b>ihr:</b> Kommt! Nehmt! Seid ruhig!<br><b>Sie:</b> Kommen Sie! Nehmen Sie! Seien Sie ruhig!</p><p><b>Gentile:</b> Könnten Sie mir helfen? · Ich hätte gern … · Ich würde gern … · Du solltest … · Das wäre toll.</p>"],
+["Frasi per scrivere","<p><b>Informale:</b> Hallo … / Liebe … (f.) / Lieber … (m.) → Liebe Grüße / Bis bald</p><p><b>Formale:</b> Sehr geehrte Frau … / Sehr geehrter Herr … / Sehr geehrte Damen und Herren → Mit freundlichen Grüßen</p><p><b>Ringraziare:</b> Vielen Dank für …<br><b>Scusarsi:</b> Es tut mir leid, aber … / Entschuldigen Sie bitte …<br><b>Rifiutare:</b> Leider kann ich nicht kommen, weil …<br><b>Chiedere:</b> Können Sie mir bitte sagen, …? / Ich möchte fragen, ob …<br><b>Proporre:</b> Hast du am … Zeit? / Wollen wir …?<br><b>Chiudere:</b> Ich freue mich auf Ihre Antwort.</p>"],
+["L'esame A2 in breve","<p>Gli esami A2 più diffusi (Goethe, telc, ÖSD) hanno quattro parti: <b>Lesen</b>, <b>Hören</b>, <b>Schreiben</b> (un messaggio breve e una e-mail semi-formale) e <b>Sprechen</b> (domande, parlare di sé, organizzare qualcosa insieme). Di solito si passa con circa il 60%.</p><p>Controlla sul sito del tuo ente il formato esatto e fai almeno una prova ufficiale completa (Modellsatz) con l'audio vero.</p><p><b>Consigli:</b> nello scritto tocca tutti e tre i punti della traccia, anche con frasi semplici; nell'ascolto leggi prima le domande; nel parlato meglio una frase semplice e corretta che una complicata e sbagliata.</p>"]
+];
+
+/* ================== STATO ================== */
+var LS="deA2v2";
+var store={stats:{},miss:[],gmiss:[],exam:"",srs:{},act:{},gt:{}};
+try{var sv=JSON.parse(localStorage.getItem(LS));if(sv){for(var k in sv)store[k]=sv[k];}}catch(e){}
+function save(){try{localStorage.setItem(LS,JSON.stringify(store));}catch(e){}}
+var GOAL=30,INTV=[0,1,2,4,8,16];
+function today(){var d=new Date();return Math.floor((d.getTime()-d.getTimezoneOffset()*6e4)/864e5);}
+function addStat(mode,ok){var s=store.stats[mode]||(store.stats[mode]={ok:0,tot:0});s.tot++;if(ok)s.ok++;var t=today();store.act[t]=(store.act[t]||0)+1;save();}
+function srsUp(id,ok){var s=store.srs[id]||{b:0,d:0};if(ok){s.b=Math.min(5,s.b+1);s.d=today()+INTV[s.b];}else{s.b=1;s.d=today()+1;}store.srs[id]=s;}
+function streak(){var t=today(),n=0;if(!store.act[t])t--;while(store.act[t]){n++;t--;}return n;}
+function weakTopic(){var best=null,k;for(k in store.gt){var g=store.gt[k];if(g.tot>=4){var p=g.ok/g.tot;if(p<.75&&(!best||p<best.p))best={t:k,p:p};}}return best;}
+function addMiss(q){if(q.vid!=null&&store.miss.indexOf(q.vid)<0)store.miss.push(q.vid);if(q.gid!=null&&store.gmiss.indexOf(q.gid)<0)store.gmiss.push(q.gid);save();}
+function delMiss(q){if(q.vid!=null)store.miss=store.miss.filter(function(x){return x!==q.vid;});if(q.gid!=null)store.gmiss=store.gmiss.filter(function(x){return x!==q.gid;});save();}
+
+var app=document.getElementById('app');
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function rnd(a,b){return a+Math.floor(Math.random()*(b-a+1));}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function $(id){return document.getElementById(id);}
+var O={cat:"Tutte",dir:"de",vmode:"mix",gtop:"Tutti",nmode:"read",rate:"0.9"};
+
+/* ---- voce ---- */
+var canSpeak=false,deVoice=null;
+try{canSpeak=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=="undefined";}catch(e){}
+function loadVoice(){try{var v=window.speechSynthesis.getVoices();for(var i=0;i<v.length;i++){if(/^de/i.test(v[i].lang)){deVoice=v[i];break;}}}catch(e){}}
+if(canSpeak){try{loadVoice();window.speechSynthesis.addEventListener('voiceschanged',loadVoice);}catch(e){}}
+function speak(t,rate){if(!canSpeak)return;try{window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(String(t).replace(/…|___/g,'').replace(/<[^>]+>/g,' '));u.lang='de-DE';if(deVoice)u.voice=deVoice;u.rate=rate||parseFloat(O.rate)||0.9;window.speechSynthesis.speak(u);}catch(e){}}
+function sayBtn(t,label,cls){return canSpeak?'<button type="button" class="say '+(cls||'')+'" data-say="'+esc(t)+'">🔊 '+(label||'Ascolta')+'</button>':'';}
+app.addEventListener('click',function(e){var b=e.target.closest?e.target.closest('[data-say]'):null;if(b){e.stopPropagation();speak(b.getAttribute('data-say'));}});
+
+/* ---- confronto risposte ---- */
+function norm(s){return String(s).toLowerCase().replace(/[.,!?…"'„“»«]/g,'').replace(/\s+/g,' ').trim();}
+function deUml(s){return s.replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss');}
+function check(inp,answers){var n=norm(inp);if(!n)return 'no';for(var i=0;i<answers.length;i++){var na=norm(answers[i]);if(n===na)return 'ok';if(deUml(n)===deUml(na))return 'uml';}return 'no';}
+
+/* ---- numeri ---- */
+var ON=["null","eins","zwei","drei","vier","fünf","sechs","sieben","acht","neun","zehn","elf","zwölf","dreizehn","vierzehn","fünfzehn","sechzehn","siebzehn","achtzehn","neunzehn"];
+var TE=["","","zwanzig","dreißig","vierzig","fünfzig","sechzig","siebzig","achtzig","neunzig"];
+function n2d(n){
+  if(n<20)return ON[n];
+  if(n<100){var u=n%10,t=Math.floor(n/10);return (u?(u===1?"ein":ON[u])+"und":"")+TE[t];}
+  if(n<1000){var h=Math.floor(n/100),r=n%100;return (h===1?"ein":ON[h])+"hundert"+(r?n2d(r):"");}
+  var th=Math.floor(n/1000),r2=n%1000;return (th===1?"ein":ON[th])+"tausend"+(r2?n2d(r2):"");
+}
+function year2d(y){if(y>=1100&&y<2000){var r=y%100;return n2d(Math.floor(y/100))+"hundert"+(r?n2d(r):"");}return n2d(y);}
+
+/* ================== HOME ================== */
+var TITLE={flash:"Flashcard",quiz:"Quiz vocaboli",art:"Der · Die · Das",write:"Scrivi",verb:"Verbi",gram:"Grammatica",build:"Costruisci la frase",num:"Numeri e orari",lesen:"Lesen",hoeren:"Hören",schreiben:"Schreiben",sprechen:"Sprechen",mix:"Simulazione",miss:"I tuoi errori",schede:"Schede di grammatica",daily:"Ripasso del giorno",dikt:"Dettato",exam:"Prova completa",prog:"Progressi"};
+var SECT=[
+ ["Vocabolario",[["flash","Flashcard","Gira le carte","#1c1b19","Fc"],["quiz","Quiz vocaboli","Scelta multipla","#c8202f","Qz"],["art","Der · Die · Das","Il genere dei nomi","#2d63c8","Art"],["write","Scrivi","Dall'italiano al tedesco","#b8860b","Wr"]]],
+ ["Grammatica",[["gram","Grammatica",GR.length+" esercizi spiegati","#7a4bc2","Gr"],["verb","Verbi","Präsens, Perfekt, Präteritum","#1f8a4c","Vb"],["build","Costruisci la frase","Ordine delle parole","#0e7c86","Sz"],["num","Numeri e orari","Leggi o ascolta","#c2571a","12"]]],
+ ["Prove d'esame A2",[["lesen","Lesen","Testi con domande","#2d63c8","Le"],["hoeren","Hören","Annunci e messaggi","#c8202f","Hö"],["schreiben","Schreiben","SMS ed e-mail con modello","#1f8a4c","Sc"],["sprechen","Sprechen","Le tre parti dell'orale","#b8860b","Sp"],["dikt","Dettato","Ascolta e scrivi la frase","#0e7c86","Dk"],["exam","Prova completa","Lesen, Hören e grammatica","#1c1b19","A2"]]]
+];
+function daysLeft(){if(!store.exam)return null;var d=new Date(store.exam+"T00:00:00");if(isNaN(d))return null;var t=new Date();t.setHours(0,0,0,0);return Math.round((d-t)/864e5);}
+function home(){
+  try{if(canSpeak)window.speechSynthesis.cancel();}catch(e){}
+  var t=today(),k,nd=0,seen=0,learned=0;
+  for(k in store.srs){seen++;if(store.srs[k].b>=3)learned++;if(store.srs[k].d<=t)nd++;}
+  var nnew=Math.min(8,VOC.length-seen),td=store.act[t]||0,st=streak(),nm=store.miss.length+store.gmiss.length,dl=daysLeft(),wk=weakTopic();
+  var card=function(m,ic,col,ti,sub,wide){return '<button class="mode'+(wide?' wide':'')+'" data-m="'+m+'"><div class="ic" style="background:'+col+'">'+ic+'</div><div><b>'+ti+'</b><span>'+sub+'</span></div></button>';};
+  var h='<header><div class="flag"></div><h1>Deutsch A1–A2<small>Ripasso per l\'esame</small></h1></header>'+
+  '<div class="stats"><div class="stat"><b>'+st+'</b><span>'+(st===1?'giorno':'giorni')+' di fila</span></div><div class="stat"><b>'+td+'<small> / '+GOAL+'</small></b><span>risposte oggi</span></div><div class="stat"><b>'+learned+'<small> / '+VOC.length+'</small></b><span>parole imparate</span></div></div>'+
+  '<div class="bar" style="margin:8px 0 0"><i style="width:'+Math.min(100,td/GOAL*100)+'%"></i></div>'+
+  '<div class="exam"><span>Data esame:</span><input type="date" id="exd" value="'+esc(store.exam)+'">'+(dl!=null?'<span>'+(dl>0?'mancano <b>'+dl+'</b> giorni':dl===0?'<b>è oggi. Viel Erfolg!</b>':'già passato')+'</span>':'')+'</div>'+
+  '<h3>Oggi</h3><div class="grid">'+
+  card("daily","★","#c8202f","Ripasso del giorno",(nd||nnew)?(nd+' da ripassare · '+nnew+' nuove'):'Fatto! Torna domani',true)+
+  (wk?card("weak","!","#7a4bc2","Punto debole: "+esc(wk.t),Math.round(wk.p*100)+'% di risposte giuste · tocca per allenarlo',true):'')+
+  card("mix","20","#1c1b19","Simulazione","20 domande miste",false)+
+  card("miss","↺","#8a8378","I tuoi errori",nm?nm+' da ripassare':'Nessuno per ora',false)+'</div>';
+  SECT.forEach(function(s){h+='<h3>'+s[0]+'</h3><div class="grid">'+s[1].map(function(m){return card(m[0],m[4],m[3],m[1],m[2],false);}).join('')+'</div>';});
+  h+='<h3>Teoria e progressi</h3><div class="grid">'+card("schede","§","#5b5348","Schede","Regole e frasi utili",false)+card("prog","%","#5b5348","Progressi","Statistiche e backup",false)+'</div>'+
+  '<p class="note">'+VOC.length+' vocaboli · '+VERBS.length+' verbi · '+GR.length+' esercizi di grammatica</p>';
+  app.innerHTML=h;
+  Array.prototype.forEach.call(app.querySelectorAll('[data-m]'),function(b){b.onclick=function(){setup(b.getAttribute('data-m'));};});
+  $('exd').onchange=function(){store.exam=this.value;save();home();};
+  window.scrollTo(0,0);
+}
+
+/* ================== SETUP ================== */
+function bar(title){return '<header><div class="flag"></div><h1>'+title+'</h1><button class="back" id="bk">← Menu</button></header>';}
+function bindBack(){$('bk').onclick=home;}
+function chips(list,cur,key,wrap){return '<div class="chips'+(wrap?' wrapc':'')+'">'+list.map(function(c){return '<button class="chip '+(c===cur?'on':'')+'" data-k="'+key+'" data-v="'+esc(c)+'">'+esc(c)+'</button>';}).join('')+'</div>';}
+function seg(list,cur,key){return '<div class="seg">'+list.map(function(x){return '<button class="'+(x[0]===cur?'on':'')+'" data-k="'+key+'" data-v="'+x[0]+'">'+x[1]+'</button>';}).join('')+'</div>';}
+var DESC={flash:"Tocca la carta per girarla, poi dimmi se la sapevi. Le carte sbagliate tornano in fondo al mazzo.",
+ quiz:"Scegli la traduzione giusta tra quattro.",art:"Scegli l'articolo giusto. Dopo la risposta vedi anche il plurale.",
+ write:"Scrivi la parola in tedesco; per i nomi metti anche l'articolo. Senza tastiera tedesca vanno bene «ae», «oe», «ue», «ss».",
+ verb:"Coniuga il verbo per la persona indicata. Al Perfekt scrivi ausiliare + participio (es. «bin gegangen»). Il Präteritum riguarda sein, haben e i modali.",
+ gram:"Completa la frase scegliendo l'opzione giusta. Ogni risposta ha una breve spiegazione.",
+ build:"Tocca le parole nell'ordine giusto per tradurre la frase. Attenzione alla posizione del verbo!",
+ num:"Numeri, anni e orari: scrivi il numero in cifre o scegli l'ora giusta.",
+ lesen:"Leggi due brevi testi (annunci, e-mail, avvisi) e rispondi a tre domande per ciascuno, come nella prova di lettura.",
+ hoeren:"Ascolta quattro brevi annunci o messaggi e rispondi a due domande per ciascuno. Puoi riascoltare quanto vuoi; all'esame di solito si ascolta una o due volte.",
+ dikt:"Ascolti una frase e la scrivi. Maiuscole e punteggiatura non contano, le parole sì. Puoi riascoltare quanto vuoi.",
+ exam:"Una prova in tre parti: Lesen (2 testi), Hören (3 ascolti), grammatica e frasi. Alla fine vedi il punteggio per ogni parte; promosso con il 60%.",
+ mix:"20 domande miste: grammatica, vocaboli, articoli, verbi e ordine delle parole. Con 12 risposte giuste sei promosso."};
+function setup(m){
+  if(m==="schede")return schede();
+  if(m==="prog")return prog();
+  if(m==="daily")return start(m);
+  if(m==="weak"){var wk=weakTopic();if(wk){O.gtop=wk.t;return start("gram");}return home();}
+  if(m==="dikt"&&!canSpeak){app.innerHTML=bar(TITLE[m])+'<div class="empty">Il dettato ha bisogno della sintesi vocale, che qui non è disponibile.<br>Prova ad aprire la pagina nel browser del telefono.</div>';bindBack();return;}
+  if(m==="schreiben")return schreiben(0);
+  if(m==="sprechen")return sprechen(0,0);
+  if(m==="miss"){ if(!(store.miss.length+store.gmiss.length)){app.innerHTML=bar(TITLE[m])+'<div class="empty">Nessun errore da ripassare.<br>Quando sbagli qualcosa lo ritrovi qui.</div>';bindBack();return;} return start(m); }
+  var h=bar(TITLE[m]);
+  if(["flash","quiz","write","art"].indexOf(m)>=0){
+    var cats=["Tutte"].concat(m==="art"?CATS.filter(function(c){return VOC.some(function(v){return v.c===c&&v.g;});}):CATS);
+    if(cats.indexOf(O.cat)<0)O.cat="Tutte";
+    h+='<h3 style="margin-top:0">Argomento</h3>'+chips(cats,O.cat,"cat",true);
+  }
+  if(m==="flash"||m==="quiz") h+=seg([["de","Tedesco → Italiano"],["it","Italiano → Tedesco"]],O.dir,"dir");
+  if(m==="verb") h+=seg([["pr","Präsens"],["pf","Perfekt"],["pt","Präteritum"],["mix","Misto"]],O.vmode,"vmode");
+  if(m==="gram"){h+='<h3 style="margin-top:0">Argomento</h3>'+chips(["Tutti"].concat(GTOP),O.gtop,"gtop",true);}
+  if(m==="num"){if(!canSpeak)O.nmode="read";if(canSpeak)h+=seg([["read","Leggi"],["listen","Ascolta"]],O.nmode,"nmode");}
+  if((m==="hoeren"||m==="dikt"||m==="exam")&&canSpeak)h+='<h3 style="margin-top:0">Velocità della voce</h3>'+seg([["0.7","Lenta"],["0.9","Normale"],["1.05","Veloce"]],O.rate,"rate");
+  h+='<p style="color:var(--mute);font-size:.92rem">'+DESC[m]+'</p>';
+  if(m==="hoeren"&&!canSpeak)h+='<p style="font-size:.9rem">Qui la sintesi vocale non è disponibile: vedrai il testo scritto al posto dell\'audio.</p>';
+  h+='<div class="actions"><button class="btn" id="go">Inizia</button></div>';
+  app.innerHTML=h;bindBack();
+  Array.prototype.forEach.call(app.querySelectorAll('[data-k]'),function(b){b.onclick=function(){O[b.getAttribute('data-k')]=b.getAttribute('data-v');setup(m);};});
+  $('go').onclick=function(){start(m);};
+  window.scrollTo(0,0);
+}
+
+/* ================== GENERATORI ================== */
+function pool(){return O.cat==="Tutte"?VOC:VOC.filter(function(v){return v.c===O.cat;});}
+function vocMC(v,dir){
+  var key=dir==="de"?"it":"de",seen={},d=[];seen[v[key]]=1;
+  var cand=shuffle(VOC.filter(function(x){return x.c===v.c&&x.id!==v.id;})).concat(shuffle(VOC.filter(function(x){return x.c!==v.c;})));
+  for(var i=0;i<cand.length&&d.length<3;i++){if(!seen[cand[i][key]]){seen[cand[i][key]]=1;d.push(cand[i][key]);}}
+  return {kind:"mc",tag:v.c,prompt:dir==="de"?v.de:v.it,sub:dir==="de"?"Che cosa significa?":"Come si dice in tedesco?",opts:[v[key]].concat(d),speak:dir==="de"?v.de:null,speakAfter:v.de,vid:v.id,
+    explain:esc(v.de)+' = '+esc(v.it)+(v.pl?' · pl. '+esc(v.pl):'')};
+}
+function vocWrite(v){return {kind:"input",tag:v.c,prompt:v.it,sub:v.g?"Nome: scrivi anche l'articolo":"In tedesco:",answers:[v.de],bare:v.g?v.bare:null,speakAfter:v.de,vid:v.id,explain:'<b>'+esc(v.de)+'</b>'+(v.pl?' · pl. '+esc(v.pl):'')};}
+function vocArt(v){return {kind:"art",tag:v.c,prompt:v.bare,sub:v.it,answer:v.g,speakAfter:v.de,vid:v.id,explain:'<span class="g-'+v.g+'"><b>'+v.g+'</b></span> '+esc(v.bare)+(v.pl?' · pl. '+esc(v.pl):' · (di solito senza plurale)')};}
+function verbQ(mode){
+  mode=mode||O.vmode;
+  if(mode==="mix"){var r=Math.random();mode=r<.45?"pr":r<.85?"pf":"pt";}
+  var p=rnd(0,5),p0=PRON[p].split('/')[0],v,a;
+  if(mode==="pt"){v=pick(PTV);a=PT[v.inf][p];
+    return {kind:"input",tag:"Präteritum",prompt:PRON[p]+" ___",sub:v.inf+" — "+v.it,answers:[a],speakAfter:p0+" "+a,explain:v.inf+' (Präteritum): '+PT[v.inf].map(function(x,i){return PRON[i].split('/')[0]+' <b>'+x+'</b>';}).join(' · ')};}
+  v=pick(VERBS);
+  if(mode==="pf"){a=AUX[v.aux][p]+" "+v.part;var ans=[a];if(v.inf==="schwimmen")ans.push(AUX.h[p]+" "+v.part);
+    return {kind:"input",tag:"Perfekt",prompt:PRON[p]+" ___",sub:v.inf+" — "+v.it,answers:ans,speakAfter:p0+" "+a,explain:PRON[p]+' <b>'+a+'</b> · ausiliare <b>'+(v.aux==="s"?"sein":"haben")+'</b>'};}
+  a=v.pr[p];
+  return {kind:"input",tag:"Präsens",prompt:PRON[p]+" ___",sub:v.inf+" — "+v.it,answers:[a],speakAfter:p0+" "+a,explain:v.inf+': '+v.pr.map(function(x,i){return PRON[i].split('/')[0]+' <b>'+x+'</b>';}).join(' · ')};
+}
+function gramQ(i){var g=GR[i];return {kind:"mc",tag:g[0],prompt:g[1],sub:"Scegli l'opzione giusta:",opts:g[2],explain:esc(g[3]),gid:i};}
+function buildQ(s){
+  var toks=s[1].split(' '),sh=shuffle(toks),n=0;
+  while(sh.join(' ')===s[1]&&n++<10)sh=shuffle(toks);
+  return {kind:"build",tag:"Ordine delle parole",prompt:s[0],sub:"Costruisci la frase in tedesco:",tok:sh,end:s[2],answers:[s[1]].concat(s[3]||[]),speakAfter:s[1]+s[2],explain:'<b>'+esc(s[1]+s[2])+'</b>'};
+}
+function numQ(){
+  var listen=O.nmode==="listen"&&canSpeak;
+  if(Math.random()<.35){
+    var h=rnd(1,12),nh=h%12+1,ph=(h+10)%12+1,W=function(n){return ON[n];};
+    var f=pick([[0,(h===1?"ein":W(h))+" Uhr"],[30,"halb "+W(nh)],[15,"Viertel nach "+W(h)],[45,"Viertel vor "+W(nh)],[10,"zehn nach "+W(h)],[50,"zehn vor "+W(nh)],[5,"fünf nach "+W(h)],[55,"fünf vor "+W(nh)],[20,"zwanzig nach "+W(h)],[40,"zwanzig vor "+W(nh)],[25,"fünf vor halb "+W(nh)],[35,"fünf nach halb "+W(nh)]]);
+    var m=f[0],fmt=function(a,b){return a+":"+(b<10?"0":"")+b;};
+    var o=[fmt(h,m),fmt(nh,m),fmt(ph,m),(m===0?fmt(nh,30):m===30?fmt(nh,0):fmt(h,60-m))];
+    var txt="Es ist "+f[1]+".";
+    return {kind:"mc",tag:"Orari",prompt:listen?"🔊 Che ore sono?":txt,sub:listen?"Ascolta e scegli":"Che ore sono?",opts:o,speak:txt,auto:listen,explain:esc(txt)+' = <b>'+o[0]+'</b>'};
+  }
+  var r=Math.random(),n,w,tag="Numeri";
+  if(r<.4)n=rnd(11,99);else if(r<.7)n=rnd(100,999);else if(r<.85)n=rnd(1000,9999);else{n=rnd(1950,2026);tag="Anni";}
+  w=tag==="Anni"?year2d(n):n2d(n);
+  return {kind:"input",numeric:true,tag:tag,prompt:listen?"🔊 ?":w,sub:listen?"Ascolta e scrivi il numero in cifre":"Scrivi il numero in cifre",answers:[String(n)],speak:w,auto:listen,explain:'<b>'+n+'</b> = '+esc(w)};
+}
+function textQs(T,isH){
+  var out=[];T.q.forEach(function(q,i){
+    var rf=q[1].indexOf("Richtig")>=0&&q[1].indexOf("Falsch")>=0;
+    var o={kind:"mc",tag:isH?"Hören":"Lesen · "+T.t,prompt:q[0],sub:rf?"Richtig oder falsch?":"",opts:q[1],fixed:rf?["Richtig","Falsch"]:null,sm:true};
+    if(isH){if(canSpeak){o.audio=T.x;o.auto=i===0;}else o.passage=esc(T.x);o.explain='<i>Testo:</i> '+esc(T.x);}
+    else{o.passage=T.x;o.explain=esc(q[2]||'');}
+    out.push(o);});
+  return out;
+}
+function makeRound(m){
+  var out=[],i;
+  if(m==="flash")return shuffle(pool()).slice(0,15);
+  if(m==="quiz")return shuffle(pool()).slice(0,10).map(function(v){return vocMC(v,O.dir);});
+  if(m==="write")return shuffle(pool()).slice(0,10).map(vocWrite);
+  if(m==="art")return shuffle(pool().filter(function(v){return v.g;})).slice(0,10).map(vocArt);
+  if(m==="verb"){for(i=0;i<10;i++)out.push(verbQ());return out;}
+  if(m==="gram"){var idx=[];GR.forEach(function(g,j){if(O.gtop==="Tutti"||g[0]===O.gtop)idx.push(j);});return shuffle(idx).slice(0,10).map(gramQ);}
+  if(m==="build")return shuffle(SENT).slice(0,8).map(buildQ);
+  if(m==="num"){for(i=0;i<10;i++)out.push(numQ());return out;}
+  if(m==="lesen"){shuffle(LESEN).slice(0,2).forEach(function(T){out=out.concat(textQs(T,false));});return out;}
+  if(m==="hoeren"){shuffle(HOEREN).slice(0,4).forEach(function(T){out=out.concat(textQs(T,true));});return out;}
+  if(m==="mix"){
+    var gi=shuffle(GR.map(function(g,j){return j;})).slice(0,8).map(gramQ),vv=shuffle(VOC);
+    out=gi.concat(vv.slice(0,3).map(function(v){return vocMC(v,Math.random()<.5?"de":"it");}),shuffle(VOC.filter(function(v){return v.g;})).slice(0,2).map(vocArt),vv.slice(3,5).map(vocWrite),[verbQ("pr"),verbQ("pf"),verbQ("pf")],shuffle(SENT).slice(0,2).map(buildQ));
+    return shuffle(out);
+  }
+  if(m==="daily"){
+    var t=today(),due=[],fresh=[];
+    VOC.forEach(function(v){var s=store.srs[v.id];if(!s)fresh.push(v);else if(s.d<=t)due.push(v);});
+    due.sort(function(a,b){return store.srs[a.id].d-store.srs[b.id].d;});due=due.slice(0,20);
+    fresh=shuffle(fresh).slice(0,Math.min(8,Math.max(20-due.length,3)));
+    var fid={};fresh.forEach(function(v){fid[v.id]=1;});
+    return shuffle(due.concat(fresh)).map(function(v){var s=store.srs[v.id],b=s?s.b:0,q;
+      if(b<=1)q=vocMC(v,"de");else if(b===2)q=(v.g&&Math.random()<.5)?vocArt(v):vocMC(v,"it");else q=vocWrite(v);
+      if(fid[v.id])q.tag="Nuova · "+v.c;return q;});
+  }
+  if(m==="dikt")return shuffle(SENT).slice(0,8).map(function(s){var tx=s[1]+s[2];return {kind:"input",tag:"Dettato",prompt:"🔊 Ascolta e scrivi",sub:"Scrivi la frase che senti",speak:tx,auto:true,answers:[s[1]],explain:'<b>'+esc(tx)+'</b><br>'+esc(s[0])};});
+  if(m==="exam"){
+    var tag=function(a,sec){a.forEach(function(q){q.sec=sec;});return a;};
+    shuffle(LESEN).slice(0,2).forEach(function(T){out=out.concat(tag(textQs(T,false),"Lesen"));});
+    shuffle(HOEREN).slice(0,3).forEach(function(T){out=out.concat(tag(textQs(T,true),"Hören"));});
+    out=out.concat(tag(shuffle(GR.map(function(g,j){return j;})).slice(0,8).map(gramQ).concat(shuffle(SENT).slice(0,2).map(buildQ)),"Grammatica e frasi"));
+    return out;
+  }
+  if(m==="miss"){
+    var items=store.miss.map(function(id){return ['v',id];}).concat(store.gmiss.map(function(id){return ['g',id];}));
+    return shuffle(items).slice(0,10).map(function(it){
+      if(it[0]==='g')return GR[it[1]]?gramQ(it[1]):null;
+      var v=VOC[it[1]];if(!v)return null;var r=Math.random();
+      return v.g&&r<.33?vocArt(v):r<.66?vocWrite(v):vocMC(v,Math.random()<.5?"de":"it");
+    }).filter(Boolean);
+  }
+  return out;
+}
+
+/* ================== GIRO ================== */
+var R=null;
+function start(m){
+  var qs=makeRound(m);
+  if(!qs.length){app.innerHTML=bar(TITLE[m])+'<div class="empty">'+(m==="daily"?"Hai visto tutti i vocaboli e oggi non c'è niente da ripassare. Torna domani!":"Niente da mostrare qui.")+'</div>';bindBack();return;}
+  R={m:m,qs:qs,i:0,ok:0,errs:[],sec:{}};
+  if(m==="flash"){R.known=0;R.again=0;R.rep={};return flash();}
+  render();
+}
+function render(){
+  var q=R.qs[R.i],n=R.qs.length;
+  var h=bar(TITLE[R.m])+'<div class="meta"><span>Domanda '+(R.i+1)+' di '+n+'</span><span>'+R.ok+' corrette</span></div><div class="bar"><i style="width:'+(R.i/n*100)+'%"></i></div><div class="q">';
+  h+='<div class="tag">'+esc(q.tag)+'</div>';
+  if(q.passage)h+='<div class="passage">'+q.passage+'</div>';
+  if(q.audio)h+=sayBtn(q.audio,'Ascolta il testo','big');
+  h+='<div class="prompt'+((q.sm||q.prompt.length>34)?' sm':'')+'">'+esc(q.prompt)+'</div>'+(q.sub?'<div class="sub">'+esc(q.sub)+'</div>':'')+(q.speak?sayBtn(q.speak):'');
+  if(q.kind==="mc"){q._o=q.fixed||shuffle(q.opts);h+='<div class="opts">'+q._o.map(function(o,i){return '<button class="opt" data-i="'+i+'">'+esc(o)+'</button>';}).join('')+'</div>';}
+  if(q.kind==="art"){h+='<div class="art">'+["der","die","das"].map(function(a){return '<button class="opt '+a+'" data-a="'+a+'">'+a+'</button>';}).join('')+'</div>';}
+  if(q.kind==="input"){h+='<input class="ans" id="in" '+(q.numeric?'inputmode="numeric" ':'')+'autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Scrivi qui…">'+(q.numeric?'':'<div class="uml">'+["ä","ö","ü","ß"].map(function(c){return '<button type="button" data-c="'+c+'">'+c+'</button>';}).join('')+'</div>');}
+  if(q.kind==="build"){h+='<div class="built" id="built"></div><div class="tokens" id="toks"></div>';}
+  h+='<div class="fb" id="fb"></div></div><div class="actions" id="act">'+((q.kind==="input"||q.kind==="build")?'<button class="btn ghost" id="skip">Non lo so</button><button class="btn" id="chk">Controlla</button>':'')+'</div>';
+  app.innerHTML=h;bindBack();window.scrollTo(0,0);
+  if(q.auto)speak(q.audio||q.speak);
+  var os=app.querySelectorAll('.opt');
+  if(q.kind==="mc")Array.prototype.forEach.call(os,function(b){b.onclick=function(){
+    var right=q._o[+b.getAttribute('data-i')]===q.opts[0];
+    Array.prototype.forEach.call(os,function(x){x.disabled=true;if(q._o[+x.getAttribute('data-i')]===q.opts[0])x.classList.add('ok');});
+    if(!right)b.classList.add('no');done(right,null);};});
+  if(q.kind==="art")Array.prototype.forEach.call(os,function(b){b.onclick=function(){
+    var right=b.getAttribute('data-a')===q.answer;
+    Array.prototype.forEach.call(os,function(x){x.disabled=true;if(x.getAttribute('data-a')===q.answer)x.classList.add('ok');else if(x!==b)x.classList.add('dim');});
+    if(!right)b.classList.add('no');done(right,null);};});
+  if(q.kind==="input"){
+    var inp=$('in');
+    Array.prototype.forEach.call(app.querySelectorAll('[data-c]'),function(b){b.onclick=function(){if(inp.disabled)return;var s=inp.selectionStart==null?inp.value.length:inp.selectionStart,e2=inp.selectionEnd==null?s:inp.selectionEnd;inp.value=inp.value.slice(0,s)+b.getAttribute('data-c')+inp.value.slice(e2);inp.focus();try{inp.setSelectionRange(s+1,s+1);}catch(e){}};});
+    var go=function(){if(inp.disabled)return;var r=check(inp.value,q.answers),msg=null,strip=function(x){return norm(x).replace(/^(der|die|das) /,'');};
+      if(r==="no"&&q.bare){var lc=norm(inp.value);if(check(inp.value,[q.bare])!=="no")msg="Parola giusta, ma manca l'articolo!";else if(deUml(strip(inp.value))===deUml(strip(q.answers[0]))&&/^(der|die|das) /.test(lc))msg="Articolo sbagliato!";}
+      if(r==="uml")msg="Giusto! (ricorda: ä, ö, ü, ß)";
+      inp.disabled=true;inp.classList.add(r==="no"?"no":"ok");done(r!=="no",msg);};
+    inp.addEventListener('keydown',function(e){if(e.key==="Enter"){e.preventDefault();go();}});
+    $('chk').onclick=go;
+    $('skip').onclick=function(){if(inp.disabled)return;inp.disabled=true;inp.classList.add('no');done(false,null);};
+  }
+  if(q.kind==="build"){
+    var sel=[],locked=false,built=$('built'),toks=$('toks');
+    var draw=function(){
+      built.innerHTML=sel.length?sel.map(function(ti,k){return '<button type="button" class="tok on" data-k="'+k+'">'+esc(q.tok[ti])+'</button>';}).join('')+'<span class="ph">'+esc(q.end)+'</span>':'<span class="ph">Tocca le parole qui sotto…</span>';
+      toks.innerHTML=q.tok.map(function(w,ti){return '<button type="button" class="tok'+(sel.indexOf(ti)>=0?' used':'')+'" data-t="'+ti+'">'+esc(w)+'</button>';}).join('');
+    };
+    toks.onclick=function(e){var b=e.target.closest('[data-t]');if(!b||locked)return;var ti=+b.getAttribute('data-t');if(sel.indexOf(ti)<0){sel.push(ti);draw();}};
+    built.onclick=function(e){var b=e.target.closest('[data-k]');if(!b||locked)return;sel.splice(+b.getAttribute('data-k'),1);draw();};
+    draw();
+    var fin=function(skip){if(locked)return;locked=true;var s=sel.map(function(ti){return q.tok[ti];}).join(' ');
+      var right=!skip&&q.answers.some(function(a){return norm(a)===norm(s);});
+      built.classList.add(right?'ok':'no');done(right,null);};
+    $('chk').onclick=function(){if(sel.length)fin(false);};
+    $('skip').onclick=function(){fin(true);};
+  }
+}
+function done(right,msg){
+  var q=R.qs[R.i];
+  if(q.vid!=null)srsUp(q.vid,right);
+  if(q.gid!=null){var gk=GR[q.gid][0],gs=store.gt[gk]||(store.gt[gk]={ok:0,tot:0});gs.tot++;if(right)gs.ok++;}
+  if(q.sec){var sc=R.sec[q.sec]||(R.sec[q.sec]=[0,0]);sc[1]++;if(right)sc[0]++;}
+  addStat(R.m,right);
+  if(right){R.ok++;if(R.m==="miss")delMiss(q);}else{addMiss(q);R.errs.push(q);}
+  var fb=$('fb');fb.className="fb show "+(right?"ok":"no");
+  fb.innerHTML='<b class="h">'+(msg?esc(msg):right?pick(["Richtig! ✓","Super! ✓","Genau! ✓","Sehr gut! ✓"]):"Non proprio…")+'</b>'+(q.explain||'')+(q.speakAfter?'<br>'+sayBtn(q.speakAfter):'');
+  if(q.speakAfter)speak(q.speakAfter);
+  $('act').innerHTML='<button class="btn" id="nx">'+(R.i+1<R.qs.length?"Avanti →":"Vedi risultato")+'</button>';
+  $('nx').onclick=next;
+}
+function next(){R.i++;if(R.i<R.qs.length)render();else summary();}
+function summary(){
+  try{if(canSpeak)window.speechSynthesis.cancel();}catch(e){}
+  var n=R.qs.length,pct=Math.round(R.ok/n*100);
+  var msg=(R.m==="mix"||R.m==="exam")?(pct>=60?"Bestanden! Promosso con il "+pct+"%":"Nicht bestanden: "+pct+"%. Serve il 60%."):(pct===100?"Perfekt! 🎉":pct>=80?"Sehr gut!":pct>=50?"Gut, weiter so!":"Übung macht den Meister.");
+  var secH='',sk;for(sk in R.sec){secH+='<tr><td>'+esc(sk)+'</td><td>'+R.sec[sk][0]+' / '+R.sec[sk][1]+'</td><td>'+Math.round(R.sec[sk][0]/R.sec[sk][1]*100)+'%</td></tr>';}
+  if(secH)secH='<div class="tw" style="margin-top:12px;text-align:left"><table><tr><th>Parte</th><th>Giuste</th><th>%</th></tr>'+secH+'</table></div>';
+  app.innerHTML=bar("Risultato")+'<div class="q summary"><div class="big">'+R.ok+'/'+n+'</div><div style="font-family:Fraunces,Georgia,serif;font-size:1.15rem">'+msg+'</div>'+secH+
+  (R.errs.length?'<div class="errs"><div class="tag">Da rivedere</div>'+R.errs.map(function(q){return '<div><b>'+esc(q.prompt)+'</b><br><span>'+(q.kind==="mc"&&q.vid==null?'→ '+esc(q.opts[0])+'. ':'')+(q.audio?'':(q.explain||''))+'</span></div>';}).join('')+'</div>':'')+'</div>'+
+  '<div class="actions"><button class="btn ghost" id="hm">Menu</button><button class="btn" id="ag">Un altro giro</button></div>';
+  bindBack();$('hm').onclick=home;var m=R.m;$('ag').onclick=function(){if(m==="miss"||m==="daily")setup(m);else start(m);};window.scrollTo(0,0);
+}
+
+/* ================== FLASHCARD ================== */
+function flash(){
+  if(R.i>=R.qs.length){
+    app.innerHTML=bar("Flashcard")+'<div class="q summary"><div class="big">'+R.known+'</div><div style="font-family:Fraunces,Georgia,serif;font-size:1.15rem">carte sapute al primo colpo</div><p style="color:var(--mute)">'+(R.again?R.again+' ripetute: le trovi anche in «Ripassa i tuoi errori».':'Nessuna da ripetere. Toll!')+'</p></div><div class="actions"><button class="btn ghost" id="hm">Menu</button><button class="btn" id="ag">Nuovo mazzo</button></div>';
+    bindBack();$('hm').onclick=home;$('ag').onclick=function(){start("flash");};return;}
+  var v=R.qs[R.i],left=R.qs.length-R.i;
+  var de='<div class="w">'+(v.g?'<span class="g-'+v.g+'">'+v.g+'</span> '+esc(v.bare):esc(v.de))+'</div>'+(v.pl?'<div class="pl">pl. '+esc(v.pl)+'</div>':'')+sayBtn(v.de);
+  var it='<div class="w" style="font-size:1.6rem">'+esc(v.it)+'</div>';
+  var front=O.dir==="de"?de:it,back=O.dir==="de"?it:de;
+  app.innerHTML=bar("Flashcard")+'<div class="meta"><span>'+esc(v.c)+'</span><span>'+left+' nel mazzo</span></div><div class="bar"><i style="width:'+(R.i/R.qs.length*100)+'%"></i></div>'+
+  '<div class="flash" id="fc"><div class="inner"><div class="face">'+front+'<div class="hint">tocca per girare</div></div><div class="face back">'+back+'</div></div></div><div class="actions" id="act"><button class="btn ghost" id="flip">Gira la carta</button></div>';
+  bindBack();
+  var fc=$('fc'),shown=false;
+  var flip=function(){fc.classList.toggle('flipped');if(shown)return;shown=true;
+    if(O.dir==="it")speak(v.de);
+    $('act').innerHTML='<button class="btn red" id="no">Ripeti</button><button class="btn green" id="yes">Lo so</button>';
+    $('no').onclick=function(){srsUp(v.id,false);addStat("flash",false);addMiss({vid:v.id});if(!R.rep[v.id]){R.again++;R.rep[v.id]=1;}R.qs.push(v);R.i++;flash();};
+    $('yes').onclick=function(){srsUp(v.id,true);addStat("flash",true);if(!R.rep[v.id])R.known++;R.i++;flash();};};
+  fc.onclick=flip;$('flip').onclick=flip;
+}
+
+/* ================== SCHREIBEN ================== */
+function schreiben(i){
+  var s=SCHR[i];
+  app.innerHTML=bar("Schreiben")+'<div class="chips">'+SCHR.map(function(x,j){return '<button class="chip '+(j===i?'on':'')+'" data-j="'+j+'">'+(j+1)+' · '+x.k.split(' ')[0]+'</button>';}).join('')+'</div>'+
+  '<div class="q"><div class="tag">'+esc(s.k)+' · '+esc(s.w)+'</div><div class="prompt sm">'+esc(s.t)+'</div><ul class="pts">'+s.p.map(function(p){return '<li>'+esc(p)+'</li>';}).join('')+'</ul>'+
+  '<textarea class="ans" id="tx" placeholder="Schreib hier…" autocapitalize="sentences" spellcheck="false"></textarea><div class="wc" id="wc">0 parole</div>'+
+  '<div class="model" id="md"><b>Modello</b><br>'+s.m+'<br>'+sayBtn(s.m.replace(/<br>/g,'. '))+'<p style="font-size:.85rem;margin:10px 0 0">Controlla: hai toccato tutti e tre i punti? Saluto e chiusura adatti (du / Sie)? Verbo in 2ª posizione, e in fondo dopo weil / dass?</p></div></div>'+
+  '<div class="actions"><button class="btn ghost" id="sm">Mostra modello</button><button class="btn" id="nx">Traccia successiva</button></div>';
+  bindBack();
+  Array.prototype.forEach.call(app.querySelectorAll('[data-j]'),function(b){b.onclick=function(){schreiben(+b.getAttribute('data-j'));};});
+  $('tx').oninput=function(){var w=this.value.trim().split(/\s+/).filter(Boolean).length;$('wc').textContent=w+(w===1?' parola':' parole');};
+  $('sm').onclick=function(){$('md').classList.add('show');};
+  $('nx').onclick=function(){schreiben((i+1)%SCHR.length);};
+  window.scrollTo(0,0);
+}
+
+/* ================== SPRECHEN ================== */
+function sprechen(p,i){
+  var S=SPR[p],c=S.c[i];
+  app.innerHTML=bar("Sprechen")+seg(SPR.map(function(x,j){return [String(j),"Teil "+(j+1)];}),String(p),"p")+
+  '<p style="color:var(--mute);font-size:.9rem;margin:6px 0 12px">'+esc(S.d)+'</p><div class="meta"><span>'+esc(S.n)+'</span><span>'+(i+1)+' / '+S.c.length+'</span></div><div class="bar"><i style="width:'+((i+1)/S.c.length*100)+'%"></i></div>'+
+  '<div class="q"><div class="prompt'+(c[0].length>26?' sm':'')+'">'+esc(c[0])+'</div>'+(c[1]?'<div class="sub">'+esc(c[1])+'</div>':'')+
+  '<div class="model" id="md"><b>'+esc(c[2])+'</b>'+(c[3]?'<br>– '+esc(c[3]):'')+'<br>'+sayBtn(c[2]+(c[3]?' '+c[3]:''))+'</div></div>'+
+  '<div class="actions"><button class="btn ghost" id="pv">←</button><button class="btn ghost" id="sm" style="flex:3">Mostra modello</button><button class="btn" id="nx">→</button></div>';
+  bindBack();
+  Array.prototype.forEach.call(app.querySelectorAll('[data-k="p"]'),function(b){b.onclick=function(){sprechen(+b.getAttribute('data-v'),0);};});
+  $('sm').onclick=function(){$('md').classList.add('show');speak(c[2]+(c[3]?' '+c[3]:''));};
+  $('nx').onclick=function(){sprechen(p,(i+1)%S.c.length);};
+  $('pv').onclick=function(){sprechen(p,(i-1+S.c.length)%S.c.length);};
+  window.scrollTo(0,0);
+}
+
+/* ================== SCHEDE ================== */
+function schede(){
+  app.innerHTML=bar("Schede")+SCHEDE.map(function(s){return '<details><summary>'+esc(s[0])+'</summary><div class="in">'+s[1]+'</div></details>';}).join('');
+  bindBack();window.scrollTo(0,0);
+}
+
+/* ================== PROGRESSI ================== */
+function prog(){
+  var b=[VOC.length,0,0],k;for(k in store.srs){if(store.srs[k].b>=3)b[2]++;else b[1]++;b[0]--;}
+  var rows=GTOP.map(function(t){var g=store.gt[t];return [t,g?g.ok:0,g?g.tot:0];}).sort(function(a,c){return (a[2]?a[1]/a[2]:2)-(c[2]?c[1]/c[2]:2);});
+  var code="";try{code=JSON.stringify(store);}catch(e){}
+  var h=bar("Progressi")+'<h3 style="margin-top:0">Vocaboli</h3><div class="stats"><div class="stat"><b>'+b[0]+'</b><span>mai viste</span></div><div class="stat"><b>'+b[1]+'</b><span>in corso</span></div><div class="stat"><b>'+b[2]+'</b><span>imparate</span></div></div>'+
+  '<p class="hint2">Ogni risposta giusta allontana il prossimo ripasso (1, 2, 4, 8, 16 giorni); un errore lo riporta a domani. Una parola conta come imparata dopo alcune risposte giuste di fila.</p>'+
+  '<h3>Grammatica per argomento</h3><div class="tw"><table><tr><th>Argomento</th><th>Giuste</th><th>%</th></tr>'+rows.map(function(r){return '<tr><td>'+esc(r[0])+'</td><td>'+(r[2]?r[1]+' / '+r[2]:'–')+'</td><td>'+(r[2]?Math.round(r[1]/r[2]*100)+'%':'–')+'</td></tr>';}).join('')+'</table></div>'+
+  '<h3>Per modalità</h3><div class="tw"><table><tr><th>Modalità</th><th>Giuste</th><th>%</th></tr>';
+  for(k in store.stats){var s=store.stats[k];h+='<tr><td>'+esc(TITLE[k]||k)+'</td><td>'+s.ok+' / '+s.tot+'</td><td>'+(s.tot?Math.round(s.ok/s.tot*100):0)+'%</td></tr>';}
+  h+='</table></div><h3>Backup</h3><p class="hint2">I progressi restano solo su questo dispositivo. Per non perderli, o per portarli su un altro, copia questo codice e incollalo là nel riquadro «Importa».</p>'+
+  '<textarea class="ans" id="ex" readonly style="min-height:70px;font-size:.72rem;margin-top:0">'+esc(code)+'</textarea><div class="actions"><button class="btn ghost" id="cp">Copia il codice</button></div>'+
+  '<textarea class="ans" id="im" style="min-height:70px;font-size:.72rem" placeholder="Importa: incolla qui un codice…"></textarea><div class="hint2" id="imsg"></div><div class="actions"><button class="btn ghost" id="ib">Importa</button><button class="btn ghost" id="rst">Azzera tutto</button></div>';
+  app.innerHTML=h;bindBack();window.scrollTo(0,0);
+  $('cp').onclick=function(){var bt=this,ok=function(){bt.textContent="Copiato ✓";},sel=function(){try{$('ex').focus();$('ex').select();}catch(e){}bt.textContent="Selezionato: ora copia";};
+    try{navigator.clipboard.writeText(code).then(ok,sel);}catch(e){sel();}};
+  $('ib').onclick=function(){try{var o=JSON.parse($('im').value);if(!o||typeof o!=="object"||typeof o.stats!=="object")throw 0;
+    store={stats:o.stats||{},miss:o.miss||[],gmiss:o.gmiss||[],exam:o.exam||"",srs:o.srs||{},act:o.act||{},gt:o.gt||{}};save();home();}catch(e){$('imsg').textContent="Codice non valido.";}};
+  var armed=false;$('rst').onclick=function(){if(!armed){armed=true;this.textContent="Tocca ancora per confermare";return;}store={stats:{},miss:[],gmiss:[],exam:store.exam,srs:{},act:{},gt:{}};save();home();};
+}
+
+try{home();}catch(err){app.innerHTML='<p>Errore di avvio: '+esc(err&&err.message)+'</p>';}
+})();
+</script>
+</body>
+</html>
